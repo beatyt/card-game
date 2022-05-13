@@ -12,6 +12,14 @@ class EventTracker implements IEventTracker {
   emitter = new EventEmitter()
   gameStates: GameState[] = []
 
+  constructor(
+    private readonly listeners?: { event: string, callback: (...args: any[]) => void }[]
+  ) {
+    listeners?.forEach(listener => {
+      this.emitter.addListener(listener.event, listener.callback)
+    })
+  }
+
   dispatch(event: GameEvent) {
     // snapshots the current state
     const currentState = GameContext.game.gameState
@@ -26,7 +34,7 @@ class EventTracker implements IEventTracker {
     this.gameStates.push(newState)
 
     // update game w/ new state
-    GameContext.game.gameState = newState
+    GameContext.game.gameState = { ...currentState, ...newState }
   }
 
   undoLast(): void {

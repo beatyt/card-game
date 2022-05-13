@@ -1,13 +1,13 @@
 import GameState from "@/game/GameState";
-import { GameContext, GamePhase } from "../../game";
+import { GamePhase } from "../../game";
 import GameEvent from "../GameEvent";
+import GameEvents from "../GameEvents";
 
 class GameEnd implements GameEvent {
-  name = "Game:End"
+  name = GameEvents.GameEnded
 
-  apply(gameState: GameState): GameState {
+  apply(gameState: GameState): Partial<GameState> {
     return {
-      ...gameState,
       gamePhase: GamePhase.Ended
     }
   }

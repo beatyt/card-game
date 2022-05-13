@@ -2,6 +2,7 @@ import { Game, GameContext, GamePhase } from "../../src/game"
 import EventTracker from "../../src/events/EventTracker"
 import GameStart from "../../src/events/repository/GameStart"
 import GameInitialized from "../../src/events/repository/GameInitialized"
+import GameEvents from "../../src/events"
 
 describe('Events', () => {
   beforeEach(() => {
@@ -41,5 +42,14 @@ describe('Events', () => {
     expect(GameContext.game.gameState.gamePhase).toBe(GamePhase.Initialized)
     expect(events.gameStates.length).toBe(1)
     expect(events.eventStack.length).toBe(1) // hmm
+  })
+
+  describe("Event Messages", () => {
+    const events = new EventTracker([
+      {
+        event: GameEvents.GameInitialized,
+        callback: () => {}
+      }
+    ])
   })
 })

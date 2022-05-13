@@ -1,15 +1,13 @@
 import GameState from "@/game/GameState";
 import { GamePhase } from "../../game";
 import GameEvent from "../GameEvent";
+import GameEvents from "../GameEvents";
 
 class GameInitialize implements GameEvent {
-  name = "Game:Initialized"
+  name = GameEvents.GameInitialized
 
-  previous: GamePhase | undefined
-
-  apply(gameState: GameState): GameState {
+  apply(gameState: GameState): Partial<GameState> {
     return {
-      ...gameState,
       gamePhase: GamePhase.Initialized
     }
   }

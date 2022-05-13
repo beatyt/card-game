@@ -12,9 +12,10 @@ class Game {
   turn: number
 
   constructor(
-    private readonly players: Player[]
+    private readonly players: Player[],
+    private readonly listeners?: { event: string, callback: (...args: any[]) => void }[]
   ) {
-    this.events = new EventTracker()
+    this.events = new EventTracker(listeners || [])
     this.turn = 0
 
     GameContext.game = this

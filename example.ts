@@ -1,9 +1,30 @@
 import Player from '@/player'
-import { Game } from './src/index'
+import { Game, GameEvents } from './src/index'
 
 const players: Player[] = []
 
-const game = new Game(players)
+const listeners = [
+  {
+    event: GameEvents.GameInitialized,
+    callback: () => {
+      console.log('Hello world')
+    }
+  },
+  {
+    event: GameEvents.GameStarted,
+    callback: () => {
+      console.log('Hello world')
+    }
+  },
+  {
+    event: GameEvents.GameEnded,
+    callback: () => {
+      console.log('Good-bye world')
+    }
+  },
+]
+
+const game = new Game(players, listeners)
 
 game.start()
 game.end()
