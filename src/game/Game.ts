@@ -31,6 +31,10 @@ class Game {
     this.events.dispatch(new GameStart())
   }
 
+  rollback() {
+    this.events.undoLast()
+  }
+
   end() {
     this.events.dispatch(new GameEnd())
     // this.gameState = GamePhase.Ended

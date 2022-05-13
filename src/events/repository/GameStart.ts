@@ -8,9 +8,10 @@ class GameStart implements GameEvent {
   previous: GamePhase | undefined
 
   apply(gameState: GameState): GameState {
-    gameState.gamePhase = GamePhase.Started
-
-    return { ...gameState }
+    return {
+      ...gameState,
+      gamePhase: GamePhase.Started
+    }
   }
 
   undo(): void {

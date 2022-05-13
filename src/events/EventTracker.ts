@@ -15,7 +15,7 @@ class EventTracker implements IEventTracker {
   dispatch(event: GameEvent) {
     // snapshots the current state
     const currentState = GameContext.game.gameState
-    this.gameStates.push({ ...currentState })
+    // this.gameStates.push({ ...currentState })
 
     // applies the new state
     this.eventStack.push(event)
@@ -23,7 +23,10 @@ class EventTracker implements IEventTracker {
     this.emitter.emit(event.name)
 
     // should i snapshot the new state, or wait for next snapshot call?
-    this.gameStates.push({ ...newState })
+    this.gameStates.push(newState)
+
+    // update game w/ new state
+    GameContext.game.gameState = newState
   }
 
   undoLast(): void {

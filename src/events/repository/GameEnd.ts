@@ -6,9 +6,10 @@ class GameEnd implements GameEvent {
   name = "Game:End"
 
   apply(gameState: GameState): GameState {
-    gameState.gamePhase = GamePhase.Ended
-
-    return { ...gameState }
+    return {
+      ...gameState,
+      gamePhase: GamePhase.Ended
+    }
   }
 
   undo(): void {

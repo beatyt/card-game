@@ -8,9 +8,10 @@ class GameInitialize implements GameEvent {
   previous: GamePhase | undefined
 
   apply(gameState: GameState): GameState {
-    gameState.gamePhase = GamePhase.Initialized
-
-    return { ...gameState }
+    return {
+      ...gameState,
+      gamePhase: GamePhase.Initialized
+    }
   }
 
   undo(): void {

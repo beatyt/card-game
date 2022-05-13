@@ -1,8 +1,7 @@
 {
-  "type": "module",
   "scripts": {
     "start": "nodemon --watch \"src/**/*.ts\" --ignore \"node_modules/**/*\" --exec ts-node src/index.ts",
-    "demo": "ts-node example.ts",
+    "demo": "nodemon --watch example.ts --exec ts-node example.ts",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
