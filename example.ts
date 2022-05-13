@@ -1,36 +1,35 @@
 import Player from '@/player'
-import { Game, GameEvents } from './src/index'
+import { Game } from './src/index'
 
-const players: Player[] = []
+const players: Player[] = [
+  {
+    name: 'Test Player',
+    deck: [
+      'card-1'
+    ]
+  }
+]
+
+const handler = (d: { name: string, game: Game } ) => {
+  console.log('Hello world', d)
+
+  const { game } = d
+
+  if (d.name === 'Game:Initialized') {
+    game.start()
+  }
+
+  if (d.name === 'Game:Started') {
+    game.end()
+    game.rollback()
+  }
+}
 
 const listeners = [
   {
-    event: GameEvents.GameInitialized,
-    callback: () => {
-      console.log('Hello world')
-    }
-  },
-  {
-    event: GameEvents.GameStarted,
-    callback: () => {
-      console.log('Hello world')
-    }
-  },
-  {
-    event: GameEvents.GameEnded,
-    callback: () => {
-      console.log('Good-bye world')
-    }
-  },
+    event: 'GameEvent',
+    callback: handler
+  }
 ]
 
-const game = new Game(players, listeners)
-
-game.start()
-game.end()
-
-console.log(JSON.stringify(game))
-
-game.rollback()
-
-console.log(JSON.stringify(game))
+new Game(players, listeners)

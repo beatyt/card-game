@@ -28,13 +28,14 @@ class EventTracker implements IEventTracker {
     // applies the new state
     this.eventStack.push(event)
     const newState = event.apply(currentState)
-    this.emitter.emit(event.name)
 
     // should i snapshot the new state, or wait for next snapshot call?
     this.gameStates.push(newState)
 
     // update game w/ new state
     GameContext.game.gameState = { ...currentState, ...newState }
+
+    this.emitter.emit('GameEvent', { name: event.name, game: GameContext.game, gameState: GameContext.game.gameState })
   }
 
   undoLast(): void {
@@ -44,12 +45,14 @@ class EventTracker implements IEventTracker {
     const lastState = this.gameStates[this.gameStates.length - 1]
 
     GameContext.game.gameState = lastState
+
+    this.emitter.emit('GameEvent', { name: 'Rollback', game: GameContext.game, gameState: GameContext.game.gameState })
   }
 
   resetGame(): void {
     throw new Error('Method not implemented.')
   }
-  
+
   resetTurn(): void {
     throw new Error('Method not implemented.')
   }
