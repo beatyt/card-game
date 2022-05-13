@@ -1,4 +1,4 @@
-import Card from "src/cards"
+import Card from "@/cards"
 import IDeck from "./IDeck";
 
 class Deck implements IDeck {
