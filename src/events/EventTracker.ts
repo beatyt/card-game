@@ -35,7 +35,12 @@ class EventTracker implements IEventTracker {
     // update game w/ new state
     GameContext.game.gameState = { ...currentState, ...newState }
 
-    this.emitter.emit('GameEvent', { name: event.name, game: GameContext.game, gameState: GameContext.game.gameState })
+    this.emitter.emit('GameEvent', {
+      name: event.name,
+      game: GameContext.game,
+      gameState: GameContext.game.gameState,
+      players: GameContext.players
+    })
   }
 
   undoLast(): void {
@@ -46,7 +51,12 @@ class EventTracker implements IEventTracker {
 
     GameContext.game.gameState = lastState
 
-    this.emitter.emit('GameEvent', { name: 'Rollback', game: GameContext.game, gameState: GameContext.game.gameState })
+    this.emitter.emit('GameEvent', {
+      name: 'Rollback',
+      game: GameContext.game,
+      gameState: GameContext.game.gameState,
+      players: GameContext.players
+    })
   }
 
   resetGame(): void {

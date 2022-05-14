@@ -5,6 +5,7 @@ import GameState from "./GameState"
 import GameContext from "./GameContext"
 import GameEnd from "../events/repository/GameEnd"
 import GameInitialized from '../events/repository/GameInitialized'
+import Players from '../player/Players'
 
 class Game {
   events: EventTracker
@@ -19,6 +20,8 @@ class Game {
     this.turn = 0
 
     GameContext.game = this
+    GameContext.players = new Players(players)
+
     this.events.dispatch(new GameInitialized())
   }
 

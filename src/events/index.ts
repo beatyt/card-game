@@ -1,3 +1,7 @@
 import GameEvents from './GameEvents'
+import Payload from './Payload'
 
-export default GameEvents
+export {
+  GameEvents,
+  Payload
+}

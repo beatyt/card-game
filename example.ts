@@ -1,26 +1,33 @@
+import { Payload } from '@/events'
 import Player from '@/player'
-import { Game } from './src/index'
+import { Game, GameEvents } from './src/index'
 
 const players: Player[] = [
   {
     name: 'Test Player',
     deck: [
-      'card-1'
+      'card-1',
+      'card-2',
+      'card-3',
     ]
   }
 ]
 
-const handler = (d: { name: string, game: Game } ) => {
-  console.log('Hello world', d)
+const handler = (d: Payload ) => {
+  // console.log('Hello world', d)
 
-  const { game } = d
+  const { game, players } = d
 
-  if (d.name === 'Game:Initialized') {
+  if (d.name === GameEvents.GameInitialized) {
+    console.log(players.hands().shuffle())
     game.start()
   }
 
-  if (d.name === 'Game:Started') {
+  if (d.name === GameEvents.GameStarted) {
     game.end()
+  }
+
+  if (d.name === GameEvents.GameEnded) {
     game.rollback()
   }
 }

@@ -1,6 +1,6 @@
 import Player from "@/player"
 
-const selectRandomPlayer = (players: Player[]): any => {
+const selectRandomPlayer = (players: Player[]): Player => {
   return players[Math.random() * players.length]
 }
 

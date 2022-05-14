@@ -2,7 +2,7 @@ import { Game, GameContext, GamePhase } from "../../src/game"
 import EventTracker from "../../src/events/EventTracker"
 import GameStart from "../../src/events/repository/GameStart"
 import GameInitialized from "../../src/events/repository/GameInitialized"
-import GameEvents from "../../src/events"
+import { GameEvents } from "../../src/events"
 
 describe('Events', () => {
   beforeEach(() => {
