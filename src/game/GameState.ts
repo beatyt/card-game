@@ -1,10 +1,23 @@
-import GamePhase from "./GamePhase"
+import GamePhase from "./GamePhase";
+import IGameState, { IGameStateData } from "./IGameState";
 
-/**
- * All updates to GameState must occur through dispatching actions
- */
-interface GameState {
-  gamePhase?: GamePhase
+class GameState implements IGameState {
+  static instance: GameState
+  data: IGameStateData
+
+  private constructor() {
+    this.data = {
+      gamePhase: GamePhase.Initializing
+    }
+  }
+
+  static getInstance() {
+    if (!GameState.instance) {
+      GameState.instance = new GameState()
+    }
+
+    return GameState.instance
+  }
 }
 
 export default GameState

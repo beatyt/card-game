@@ -1,9 +1,9 @@
-import GameState from "@/game/GameState"
+import IGameState, { IGameStateData } from "../game/IGameState"
 
 interface GameEvent {
   name: string
 
-  apply(gameState: GameState): GameState
+  apply(gameState: IGameStateData): Partial<IGameStateData>
 }
 
 export default GameEvent

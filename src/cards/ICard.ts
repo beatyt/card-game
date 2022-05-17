@@ -1,6 +1,9 @@
+import Effect from "./Effect";
+
 interface ICard {
-  resolve(): void
-  rollback(): void
+  name: string;
+
+  effects(): Effect[]
 }
 
 export default ICard

@@ -1,7 +1,10 @@
-import Player from "@/player"
+import Player from "../player"
 
 const selectRandomPlayer = (players: Player[]): Player => {
-  return players[Math.random() * players.length]
+  const random = Math.floor(Math.random() * players.length)
+  const player = players[random]
+
+  return player
 }
 
 export default selectRandomPlayer

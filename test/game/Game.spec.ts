@@ -1,25 +1,33 @@
+import Library from "../../src/cards/Library"
 import Game from "../../src/game/Game"
 import GamePhase from "../../src/game/GamePhase"
+import GameState from "../../src/game/GameState"
 
 describe('Game', () => {
+  const gameConfig = {
+    players: [],
+    library: new Library([]),
+    listeners: []
+  }
+
   it('should initialize', () => {
-    const game = new Game([])
-  
-    expect(game.gameState.gamePhase).toBe(GamePhase.Initialized)
+    Game.init(gameConfig)
+
+    expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Initialized)
   })
 
   it('should start', () => {
-    const game = new Game([])
-    game.start()
-  
-    expect(game.gameState.gamePhase).toBe(GamePhase.Started)
+    Game.init(gameConfig)
+    Game.start()
+
+    expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Started)
   })
 
   it('should end', () => {
-    const game = new Game([])
-    game.start()
-    game.end()
-  
-    expect(game.gameState.gamePhase).toBe(GamePhase.Ended)
+    Game.init(gameConfig)
+    Game.start()
+    Game.end()
+
+    expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Ended)
   })
 })

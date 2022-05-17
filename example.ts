@@ -1,5 +1,6 @@
-import { Payload } from '@/events'
-import Player from '@/player'
+import Library from './src/cards/Library'
+import { Payload } from './src/events'
+import Player from './src/player'
 import { Game, GameEvents } from './src/index'
 
 const players: Player[] = [
@@ -13,22 +14,23 @@ const players: Player[] = [
   }
 ]
 
-const handler = (d: Payload ) => {
+const handler = (d: Payload) => {
   // console.log('Hello world', d)
 
-  const { game, players } = d
+  const { gameState, players } = d
 
   if (d.name === GameEvents.GameInitialized) {
-    console.log(players.hands().shuffle())
-    game.start()
+    console.log(players.startingPlayer)
+    players.hands().shuffle()
+    Game.start()
   }
 
   if (d.name === GameEvents.GameStarted) {
-    game.end()
+    Game.end()
   }
 
   if (d.name === GameEvents.GameEnded) {
-    game.rollback()
+    Game.rollback()
   }
 }
 
@@ -39,4 +41,8 @@ const listeners = [
   }
 ]
 
-new Game(players, listeners)
+const library = new Library([
+  "card-1"
+])
+
+Game.init({ players, library, listeners })

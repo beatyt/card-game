@@ -1,58 +1,55 @@
 import Player from '../player'
 import EventTracker from "../events/EventTracker"
 import GameStart from "../events/repository/GameStart"
-import GameState from "./GameState"
-import GameContext from "./GameContext"
-import GameEnd from "../events/repository/GameEnd"
 import GameInitialized from '../events/repository/GameInitialized'
 import Players from '../player/Players'
+import Library from '../cards/Library'
+import IGameState from './IGameState'
+import GameEnd from '../events/repository/GameEnd'
+import CardTranslator from '../cards/CardTranslator'
 
-class Game {
-  events: EventTracker
-  gameState: GameState = {}
-  turn: number
+export interface GameConfig {
+  players: Player[],
+  library: Library,
+  listeners?: { event: string, callback: (...args: any[]) => void }[]
+}
 
-  constructor(
-    private readonly players: Player[],
-    private readonly listeners?: { event: string, callback: (...args: any[]) => void }[]
-  ) {
-    this.events = new EventTracker(listeners || [])
-    this.turn = 0
+let events: EventTracker
+let turn: number = 0
+let gameState: IGameState = {
+  data: {}
+}
 
-    GameContext.game = this
-    GameContext.players = new Players(players)
+export default {
+  gameState,
+  init: (gameConfig: GameConfig) => {
+    new CardTranslator([])
+    new Players(gameConfig.players)
+    events = new EventTracker(gameConfig.listeners || [])
 
-    this.events.dispatch(new GameInitialized())
-  }
-
+    events.dispatch(new GameInitialized())
+  },
   /**
    * Starting player
    * Draw cards
    * Mulligans
    * Initialize stuff
-   */
+  */
   start() {
-    this.events.dispatch(new GameStart())
-  }
-
-  rollback() {
-    this.events.undoLast()
-  }
-
+    events.dispatch(new GameStart())
+  },
   end() {
-    this.events.dispatch(new GameEnd())
-    // this.gameState = GamePhase.Ended
-  }
-
-  progressTurn() {
-    this.turn++
-  }
-
-  progressPhase() {
+    events.dispatch(new GameEnd())
+  },
+  rollback() {
+    events.undoLast()
+  },
+  progressPhase: () => {
     // any end of phase rules
     // this.events.dispatch('phase:end')
     // fire off card rules that trigger on this phase
+  },
+  progressTurn: () => {
+    turn++
   }
 }
-
-export default Game

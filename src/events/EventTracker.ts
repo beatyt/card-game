@@ -1,8 +1,9 @@
-import { GameContext } from '../game'
-import GameState from '../game/GameState'
+import IGameState, { IGameStateData } from '../game/IGameState'
 import EventEmitter from 'events'
 import GameEvent from './GameEvent'
 import IEventTracker from './IEventTracker'
+import Players from '../player/Players'
+import GameState from '../game/GameState'
 
 /**
  * Tracks every event for the game to allow resets and rollbacks
@@ -10,7 +11,7 @@ import IEventTracker from './IEventTracker'
 class EventTracker implements IEventTracker {
   eventStack: GameEvent[] = []
   emitter = new EventEmitter()
-  gameStates: GameState[] = []
+  gameStates: IGameStateData[] = []
 
   constructor(
     private readonly listeners?: { event: string, callback: (...args: any[]) => void }[]
@@ -22,7 +23,7 @@ class EventTracker implements IEventTracker {
 
   dispatch(event: GameEvent) {
     // snapshots the current state
-    const currentState = GameContext.game.gameState
+    const currentState = GameState.getInstance().data
     // this.gameStates.push({ ...currentState })
 
     // applies the new state
@@ -33,13 +34,12 @@ class EventTracker implements IEventTracker {
     this.gameStates.push(newState)
 
     // update game w/ new state
-    GameContext.game.gameState = { ...currentState, ...newState }
+    GameState.getInstance().data = { ...currentState, ...newState }
 
     this.emitter.emit('GameEvent', {
       name: event.name,
-      game: GameContext.game,
-      gameState: GameContext.game.gameState,
-      players: GameContext.players
+      gameState: GameState.getInstance().data,
+      players: Players.getInstance()
     })
   }
 
@@ -49,13 +49,12 @@ class EventTracker implements IEventTracker {
 
     const lastState = this.gameStates[this.gameStates.length - 1]
 
-    GameContext.game.gameState = lastState
+    GameState.getInstance().data = lastState
 
     this.emitter.emit('GameEvent', {
       name: 'Rollback',
-      game: GameContext.game,
-      gameState: GameContext.game.gameState,
-      players: GameContext.players
+      gameState: GameState.getInstance().data,
+      players: Players.getInstance()
     })
   }
 

@@ -8,11 +8,10 @@ import ICard from "./ICard";
  * Flyway pattern?
  */
 abstract class Card implements ICard {
-  
-  constructor(
-    private readonly effects: Effect[]
-  ) {
+  name!: string;
 
+  effects(): Effect[] {
+    throw new Error("Method not implemented.");
   }
 
   resolve(): void {

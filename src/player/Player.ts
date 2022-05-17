@@ -1,7 +1,7 @@
 class Player {
   constructor(
-    name: string,
-    deck: string[],
+    readonly name: string,
+    readonly deck: string[],
   ) {
 
   }

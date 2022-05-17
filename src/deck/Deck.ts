@@ -1,9 +1,12 @@
-import Card from "@/cards"
+import ICard from "../cards/ICard";
 import IDeck from "./IDeck";
 
+/**
+ * Decks are composed of cards, or a Card[]
+ */
 class Deck implements IDeck {
   constructor(
-    private readonly cards: typeof Card[]
+    private readonly cards: ICard[]
   ) {
   }
   

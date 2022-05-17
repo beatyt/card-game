@@ -1,4 +1,4 @@
-import GameState from "@/game/GameState";
+import IGameState, { IGameStateData } from "../../game/IGameState";
 import { GamePhase } from "../../game";
 import GameEvent from "../GameEvent";
 import GameEvents from "../GameEvents";
@@ -6,7 +6,7 @@ import GameEvents from "../GameEvents";
 class GameStart implements GameEvent {
   name = GameEvents.GameStarted
 
-  apply(gameState: GameState): Partial<GameState> {
+  apply(gameState: IGameStateData): Partial<IGameStateData> {
     return {
       gamePhase: GamePhase.Started
     }
