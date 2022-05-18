@@ -1,3 +1,3 @@
-import Player from './Player'
+import { PlayerInitializer as Player } from './PlayerInitializer'
 
 export default Player

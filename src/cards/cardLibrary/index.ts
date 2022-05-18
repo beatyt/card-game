@@ -1,4 +1,3 @@
-import ICard from '@/cardsICard'
 import One from './One'
 import Zero from './Zero'
 

@@ -9,6 +9,8 @@ import GameState from '../game/GameState'
  * Tracks every event for the game to allow resets and rollbacks
  */
 class EventTracker implements IEventTracker {
+  static instance: EventTracker
+
   eventStack: GameEvent[] = []
   emitter = new EventEmitter()
   gameStates: IGameStateData[] = []
@@ -19,6 +21,12 @@ class EventTracker implements IEventTracker {
     listeners?.forEach(listener => {
       this.emitter.addListener(listener.event, listener.callback)
     })
+
+    EventTracker.instance = this
+  }
+
+  static getInstance() {
+    return EventTracker.instance
   }
 
   dispatch(event: GameEvent) {

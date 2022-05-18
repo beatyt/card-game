@@ -1,4 +1,4 @@
-import Player from '../player'
+import PlayerInitializer from '../player'
 import EventTracker from "../events/EventTracker"
 import GameStart from "../events/repository/GameStart"
 import GameInitialized from '../events/repository/GameInitialized'
@@ -8,7 +8,7 @@ import GameEnd from '../events/repository/GameEnd'
 import CardTranslator from '../cards/CardTranslator'
 
 export interface GameConfig {
-  players: Player[],
+  players: PlayerInitializer[],
   listeners?: { event: string, callback: (...args: any[]) => void }[]
 }
 
@@ -22,10 +22,12 @@ export default {
   gameState,
   init: (gameConfig: GameConfig) => {
     new CardTranslator()
-    new Players(gameConfig.players)
+    // translate initializers to players
+    gameConfig.players
+    const players = new Players(gameConfig.players)
     events = new EventTracker(gameConfig.listeners || [])
 
-    events.dispatch(new GameInitialized())
+    events.dispatch(new GameInitialized(players))
   },
   /**
    * Starting player

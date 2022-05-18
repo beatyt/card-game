@@ -1,16 +1,15 @@
-import Library from './src/cards/Library'
 import { Payload } from './src/events'
-import Player from './src/player'
+import PlayerInitializer from './src/player'
 import { Game, GameEvents } from './src/index'
 
-const players: Player[] = [
+const players: PlayerInitializer[] = [
   {
     name: 'Test Player',
     deck: [
-      '1', 
-      '1', 
-      '1', 
-      '1', 
+      '1',
+      '1',
+      '1',
+      '1',
       '2'
     ]
   }
@@ -33,6 +32,10 @@ const handler = (d: Payload) => {
 
   if (d.name === GameEvents.GameEnded) {
     Game.rollback()
+  }
+
+  if (d.name === GameEvents.HandsShuffled) {
+    console.log('gameState', gameState.players?.players.map(p => p.deck))
   }
 }
 

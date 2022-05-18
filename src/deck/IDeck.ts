@@ -1,5 +1,3 @@
-interface IDeck {
-  shuffle(): void
-}
+interface IDeck {}
 
 export default IDeck

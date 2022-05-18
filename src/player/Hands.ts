@@ -1,14 +1,16 @@
-import Deck from "../deck/Deck"
+import EventTracker from "../events/EventTracker"
+import ShuffleHands from "../events/repository/ShuffleHands"
+import ICard from "../cards/ICard"
 
 class Hands {
+  eventTracker: EventTracker = EventTracker.getInstance()
+
   constructor(
-    private readonly decks: Deck[]
-  ) {
-    
-  }
+    private readonly cards: ICard[][]
+  ) { }
 
   shuffle() {
-    this.decks.forEach(d => d.shuffle())
+    this.eventTracker.dispatch(new ShuffleHands())
   }
 }
 

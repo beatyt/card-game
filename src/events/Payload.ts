@@ -1,10 +1,10 @@
-import IGameState from "@/gameIGameState";
+import { IGameStateData } from "../game/IGameState";
 import Players from "../player/Players";
 import GameEvents from "./GameEvents";
 
 interface Payload {
   name: GameEvents,
-  gameState: IGameState,
+  gameState: IGameStateData,
   players: Players
 }
 

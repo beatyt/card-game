@@ -5,6 +5,7 @@ import GameInitialized from "../../src/events/repository/GameInitialized"
 import { GameEvents } from "../../src/events"
 import Library from "../../src/cards/Library"
 import GameState from "../../src/game/GameState"
+import Players from "../../src/player/Players"
 
 describe('Events', () => {
   beforeEach(() => {
@@ -35,7 +36,7 @@ describe('Events', () => {
   it('should update game state on undo', () => {
     const events = new EventTracker()
 
-    events.dispatch(new GameInitialized())
+    events.dispatch(new GameInitialized(new Players([])))
 
     expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Initialized)
     expect(events.gameStates.length).toBe(1)
