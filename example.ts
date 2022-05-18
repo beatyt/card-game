@@ -7,7 +7,11 @@ const players: Player[] = [
   {
     name: 'Test Player',
     deck: [
-      '1'
+      '1', 
+      '1', 
+      '1', 
+      '1', 
+      '2'
     ]
   }
 ]

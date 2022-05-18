@@ -33,6 +33,8 @@ class CardTranslator implements ICardTranslator {
   }
 
   lookupCards(cardUris: string[]): ICard[] {
+    console.time('Card Lookup')
+
     let cards = []
 
     for (let cardUri of cardUris) {
@@ -45,15 +47,23 @@ class CardTranslator implements ICardTranslator {
       }
     }
 
+    console.timeEnd('Card Lookup')
+    
     return cards;
   }
 
   lookupDecks(cardUris: string[][]): Deck[] {
-    return cardUris.map(cardUris => {
+    console.time('Loading Decks')
+
+    const decks = cardUris.map(cardUris => {
       const cards = this.lookupCards(cardUris)
       const deck = new Deck(cards)
       return deck
     })
+
+    console.timeEnd('Loading Decks')
+
+    return decks
   }
 }
 

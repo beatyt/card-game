@@ -8,7 +8,7 @@ class Hands {
   }
 
   shuffle() {
-    console.log("Called")
+    this.decks.forEach(d => d.shuffle())
   }
 }
 
