@@ -7,9 +7,7 @@ const players: Player[] = [
   {
     name: 'Test Player',
     deck: [
-      'card-1',
-      'card-2',
-      'card-3',
+      '1'
     ]
   }
 ]
@@ -41,8 +39,4 @@ const listeners = [
   }
 ]
 
-const library = new Library([
-  "card-1"
-])
-
-Game.init({ players, library, listeners })
+Game.init({ players, listeners })

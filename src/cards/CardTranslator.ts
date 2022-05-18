@@ -1,5 +1,6 @@
 import Deck from "../deck/Deck";
 import ICard from "./ICard";
+import map from '../cards'
 
 export interface ICardTranslator {
   lookupCard(cardUri: string): ICard | undefined
@@ -11,7 +12,10 @@ class CardTranslator implements ICardTranslator {
   static instance: CardTranslator
 
   constructor(
-    readonly cards: ICard[]
+    /**
+     * Could pass in only the cards players have to load a subset
+     */
+    readonly cardUris?: string[]
   ) {
     CardTranslator.instance = this
    }
@@ -25,7 +29,7 @@ class CardTranslator implements ICardTranslator {
   }
 
   lookupCard(cardUri: string): ICard | undefined {
-    return this.cards.find(c => cardUri === c.name)
+    return map.map.get(cardUri)
   }
 
   lookupCards(cardUris: string[]): ICard[] {

@@ -9,6 +9,7 @@ import ICard from "./ICard";
  */
 abstract class Card implements ICard {
   name!: string;
+  cardUid!: string;
 
   effects(): Effect[] {
     throw new Error("Method not implemented.");

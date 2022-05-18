@@ -3,14 +3,12 @@ import EventTracker from "../events/EventTracker"
 import GameStart from "../events/repository/GameStart"
 import GameInitialized from '../events/repository/GameInitialized'
 import Players from '../player/Players'
-import Library from '../cards/Library'
 import IGameState from './IGameState'
 import GameEnd from '../events/repository/GameEnd'
 import CardTranslator from '../cards/CardTranslator'
 
 export interface GameConfig {
   players: Player[],
-  library: Library,
   listeners?: { event: string, callback: (...args: any[]) => void }[]
 }
 
@@ -23,7 +21,7 @@ let gameState: IGameState = {
 export default {
   gameState,
   init: (gameConfig: GameConfig) => {
-    new CardTranslator([])
+    new CardTranslator()
     new Players(gameConfig.players)
     events = new EventTracker(gameConfig.listeners || [])
 
