@@ -11,10 +11,6 @@ class GameStart implements GameEvent {
       gamePhase: GamePhase.Started
     }
   }
-
-  undo(): void {
-
-  }
 }
 
 export default GameStart

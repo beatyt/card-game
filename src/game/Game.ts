@@ -6,6 +6,9 @@ import Players from '../player/Players'
 import IGameState from './IGameState'
 import GameEnd from '../events/repository/GameEnd'
 import CardTranslator from '../cards/CardTranslator'
+import TurnStart from '../events/repository/turns/TurnStart'
+import PhaseOrder from '../phases/PhaseOrder'
+import TurnPhase from 'phases/TurnPhase'
 
 export interface GameConfig {
   players: PlayerInitializer[],
@@ -37,6 +40,7 @@ export default {
   */
   start() {
     events.dispatch(new GameStart())
+    events.dispatch(new TurnStart())
   },
   end() {
     events.dispatch(new GameEnd())
@@ -49,7 +53,29 @@ export default {
     // this.events.dispatch('phase:end')
     // fire off card rules that trigger on this phase
   },
+  setPhase: (turn: TurnPhase) => {
+    const phase = PhaseOrder.getInstance().phases.get(turn)
+
+    if (!phase) {
+      throw new Error(`No such phase ${turn}`)
+    }
+
+    events.dispatch(phase())
+  },
   progressTurn: () => {
-    turn++
+    // get current phase
+    const currentPhase = gameState.data.turnPhase
+
+    if (!currentPhase) {
+      throw new Error("There is no current phase")
+    }
+
+    const nextPhase = PhaseOrder.getInstance().phases.get(currentPhase)
+
+    if (!nextPhase) {
+      throw new Error("No next phase set")
+    }
+
+    events.dispatch(nextPhase())
   }
 }

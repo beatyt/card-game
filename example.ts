@@ -1,6 +1,8 @@
 import { Payload } from './src/events'
 import PlayerInitializer from './src/player'
 import { Game, GameEvents } from './src/index'
+import TurnStart from './src/events/repository/turns/TurnStart'
+import TurnPhase from './src/phases/TurnPhase'
 
 const players: PlayerInitializer[] = [
   {
@@ -31,11 +33,20 @@ const handler = (d: Payload) => {
   }
 
   if (d.name === GameEvents.GameEnded) {
+    // scoring?
     Game.rollback()
   }
 
   if (d.name === GameEvents.HandsShuffled) {
     console.log('gameState', gameState.players?.players.map(p => p.deck))
+  }
+
+  if (d.name === GameEvents.TurnProgression) {
+    console.log('Turn progressed', d.gameState.turnPhase)
+
+    if (d.gameState.turnPhase !== TurnPhase.Upkeep) {
+      Game.setPhase(TurnPhase.Upkeep) // ex: user clicks a button, fire this
+    }
   }
 }
 

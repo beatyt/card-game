@@ -11,10 +11,6 @@ class GameEnd implements GameEvent {
       gamePhase: GamePhase.Ended
     }
   }
-
-  undo(): void {
-
-  }
 }
 
 export default GameEnd

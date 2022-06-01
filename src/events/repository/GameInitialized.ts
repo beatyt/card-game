@@ -18,10 +18,6 @@ class GameInitialize implements GameEvent {
       players: this.players
     }
   }
-
-  undo(): void {
-
-  }
 }
 
 export default GameInitialize

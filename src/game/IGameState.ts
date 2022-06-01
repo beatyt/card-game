@@ -2,6 +2,7 @@ import Deck from "../deck/Deck"
 import ICard from "../cards/ICard"
 import GamePhase from "./GamePhase"
 import Players from "../player/Players"
+import TurnPhase from "../phases/TurnPhase"
 
 /**
  * All updates to GameState must occur through dispatching actions
@@ -11,7 +12,8 @@ interface IGameState {
 }
 
 export interface IGameStateData {
-  gamePhase?: GamePhase
+  gamePhase?: GamePhase,
+  turnPhase?: TurnPhase,
   players?: Players | undefined
 }
 

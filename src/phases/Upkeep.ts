@@ -1,4 +1,4 @@
-import Phase from "./Phase";
+import Phase from "./IPhase";
 
 class Upkeep implements Phase {
   constructor() {

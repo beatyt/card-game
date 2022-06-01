@@ -17,10 +17,6 @@ class ShuffleHands implements GameEvent {
 
     return gameState
   }
-
-  undo(): void {
-
-  }
 }
 
 export default ShuffleHands
