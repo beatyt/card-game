@@ -1,5 +1,8 @@
+import CardType from "./CardType";
+import CardValue from "./CardValue";
 import Effect from "./Effect";
 import ICard from "./ICard";
+import SubType from "./SubType";
 
 /**
  * Would only want to load the cards once at startup, 
@@ -8,9 +11,19 @@ import ICard from "./ICard";
  * Flyway pattern?
  */
 abstract class Card implements ICard {
-  name!: string;
-  cardUid!: string;
+  name!: string
 
+  cardUid!: string
+
+  power!: CardValue
+
+  toughness!: CardValue
+
+  cardType!: CardType
+
+  subTypes!: SubType[]
+
+  // ex: Draw A Card
   effects(): Effect[] {
     throw new Error("Method not implemented.");
   }
