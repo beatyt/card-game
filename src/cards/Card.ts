@@ -1,3 +1,4 @@
+import Ability from "./Ability";
 import CardType from "./CardType";
 import CardValue from "./CardValue";
 import Effect from "./Effect";
@@ -22,6 +23,8 @@ abstract class Card implements ICard {
   cardType!: CardType
 
   subTypes!: SubType[]
+
+  abilities!: Ability[]
 
   // ex: Draw A Card
   effects(): Effect[] {
