@@ -1,5 +1,5 @@
 import Zone from './Zone'
-import Zones from './Zones'
+import Zones from '../../api/zones/Zones'
 
 export default {
   Zone,

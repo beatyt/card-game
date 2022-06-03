@@ -1,4 +1,4 @@
-import ICard from "game/cards/ICard"
+import ICard from "@api/cards/ICard"
 import { Area } from "types/zones/Area"
 
 export default interface ZoneChangeEvent {

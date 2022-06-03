@@ -1,5 +1,5 @@
-import IHand from "@api/decks/IHand"
-import ICard from "@game/cards/ICard"
+import ICard from "../api/cards/ICard"
+import IHand from "./IHand"
 
 export default class Hand implements IHand {
   cards: ICard[]

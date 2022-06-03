@@ -1,7 +1,7 @@
-import ICard from "game/cards/ICard";
 import { Area } from "../../types/zones/Area";
-import Zone from "./Zone";
-import ZoneChangeEvent from "./ZoneChangeEvent";
+import Zone from "../../game/zones/Zone";
+import ZoneChangeEvent from "../../game/zones/ZoneChangeEvent";
+import ICard from "../cards/ICard";
 
 /**
  * Functions for interacting w/ zones

@@ -1,4 +1,4 @@
-import ICard from "@game/cards/ICard";
+import ICard from "../api/cards/ICard";
 
 export default interface IHand {
   add(card: ICard): void

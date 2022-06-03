@@ -1,4 +1,4 @@
-import { IGameStateData } from "../../game/IGameState";
+import { IGameStateData } from "../IGameState";
 import Players from "../players/Players";
 import GameEvents from "./GameEvents";
 

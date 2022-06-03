@@ -4,7 +4,7 @@ import GameStart from "../../src/api/events/repository/game/GameStart"
 import GameInitialized from "../../src/api/events/repository/game/GameInitialized"
 import { GameEvents } from "../../src/api/events"
 import Library from "../../src/game/cards/Library"
-import GameState from "../../src/game/GameState"
+import GameState from "../../src/api/GameState"
 import Players from "../../src/api/players/Players"
 
 describe('Events', () => {
@@ -36,7 +36,7 @@ describe('Events', () => {
   it('should update game state on undo', () => {
     const events = new EventTracker()
 
-    events.dispatch(new GameInitialized(new Players([])))
+    events.dispatch(new GameInitialized())
 
     expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Initialized)
     expect(events.gameStates.length).toBe(1)
@@ -54,11 +54,7 @@ describe('Events', () => {
   })
 
   describe("Event Messages", () => {
-    const events = new EventTracker([
-      {
-        event: GameEvents.GameInitialized,
-        callback: () => {}
-      }
-    ])
+    const events = new EventTracker()
+    events.init()
   })
 })

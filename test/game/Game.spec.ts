@@ -1,7 +1,7 @@
 import Library from "../../src/game/cards/Library"
 import Game from "../../src/api/Game"
-import GamePhase from "../../src/game/GamePhase"
-import GameState from "../../src/game/GameState"
+import GameState from "../../src/api/GameState"
+import GamePhase from "../../src/api/GamePhase"
 
 describe('Game', () => {
   const gameConfig = {

@@ -1,5 +1,5 @@
 import Deck from "../../api/decks/Deck";
-import ICard from "./ICard";
+import ICard from "../../api/cards/ICard";
 import map from '.'
 
 export interface ICardTranslator {
@@ -11,18 +11,19 @@ export interface ICardTranslator {
 class CardTranslator implements ICardTranslator {
   static instance: CardTranslator
 
-  constructor(
-    /**
-     * Could pass in only the cards players have to load a subset
-     */
-    readonly cardUris?: string[]
-  ) {
+  cardUris?: string[]
+
+  private constructor() {
     CardTranslator.instance = this
+   }
+
+   init(cardUris?: string[]) {
+    this.cardUris = cardUris
    }
 
   static getInstance(): CardTranslator {
     if (!CardTranslator.instance) {
-      throw new Error("Not initialized")
+      new CardTranslator()
     }
 
     return CardTranslator.instance

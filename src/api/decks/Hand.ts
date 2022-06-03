@@ -1,4 +1,4 @@
-import ICard from "game/cards/ICard";
+import ICard from "../cards/ICard";
 import IHand from "./IHand";
 
 export default class Hand implements IHand {

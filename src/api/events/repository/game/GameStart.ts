@@ -1,5 +1,5 @@
-import { IGameStateData } from "../../../../game/IGameState";
 import { GamePhase } from "../../..";
+import { IGameStateData } from "../../../IGameState";
 import GameEvent from "../../GameEvent";
 import GameEvents from "../../GameEvents";
 

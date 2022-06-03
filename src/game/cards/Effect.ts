@@ -1,4 +1,4 @@
-import TurnPhase from "api/phases/TurnPhase"
+import TurnPhase from "../../api/phases/TurnPhase"
 
 abstract class Effect {
 

@@ -1,4 +1,4 @@
-import IGameState, { IGameStateData } from "../../game/IGameState"
+import { IGameStateData } from "../IGameState"
 
 /**
  * Modifies game state by taking the current state
@@ -7,6 +7,11 @@ import IGameState, { IGameStateData } from "../../game/IGameState"
 interface GameEvent {
   name: string
 
+  /**
+   * Returns the diff to add
+   * 
+   * @param gameState 
+   */
   apply(gameState: IGameStateData): Partial<IGameStateData>
 }
 

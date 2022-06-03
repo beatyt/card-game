@@ -1,7 +1,7 @@
 import Players from "../api/players/Players"
 import TurnPhase from "../api/phases/TurnPhase"
 import Zones from "./zones/Zones"
-import GamePhase from "@api/GamePhase"
+import GamePhase from "./GamePhase"
 
 /**
  * All updates to GameState must occur through dispatching actions

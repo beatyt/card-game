@@ -3,7 +3,7 @@ import Effect from './Effect'
 import Library from './Library'
 
 import cards from './cardLibrary'
-import ICard from './ICard'
+import ICard from '../../api/cards/ICard'
 
 const map = new Map<string, ICard>()
 

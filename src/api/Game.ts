@@ -3,12 +3,12 @@ import EventTracker from "./events/EventTracker"
 import GameStart from "./events/repository/game/GameStart"
 import GameInitialized from './events/repository/game/GameInitialized'
 import Players from './players/Players'
-import IGameState from '../game/IGameState'
 import GameEnd from './events/repository/game/GameEnd'
 import CardTranslator from '../game/cards/CardTranslator'
 import TurnStart from './events/repository/turns/TurnStart'
 import PhaseOrder from '../game/phases/PhaseOrder'
 import TurnPhase from './phases/TurnPhase'
+import IGameState from './IGameState'
 
 export interface GameConfig {
   players: PlayerInitializer[],
@@ -24,13 +24,13 @@ let gameState: IGameState = {
 export default {
   gameState,
   init: (gameConfig: GameConfig) => {
-    new CardTranslator()
-    // translate initializers to players
-    gameConfig.players
-    const players = new Players(gameConfig.players)
-    events = new EventTracker(gameConfig.listeners || [])
+    events = EventTracker.getInstance()
+    events.init(gameConfig.listeners || [])
 
-    events.dispatch(new GameInitialized(players))
+    // translate initializers to players
+    Players.getInstance().init(gameConfig.players)
+
+    events.dispatch(new GameInitialized())
   },
   /**
    * Starting player
@@ -54,13 +54,15 @@ export default {
     // fire off card rules that trigger on this phase
   },
   setPhase: (turn: TurnPhase) => {
-    const phase = PhaseOrder.getInstance().phases.get(turn)
+    const nextPhase = PhaseOrder.getInstance().phases.get(turn)
 
-    if (!phase) {
+    if (!nextPhase) {
       throw new Error(`No such phase ${turn}`)
     }
 
-    events.dispatch(phase())
+    console.log('nextPhase', nextPhase())
+
+    events.dispatch(nextPhase())
   },
   progressTurn: () => {
     // get current phase

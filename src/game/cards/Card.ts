@@ -2,7 +2,7 @@ import Ability from "./Ability";
 import CardType from "./CardType";
 import CardValue from "./CardValue";
 import Effect from "./Effect";
-import ICard from "./ICard";
+import ICard from "../../api/cards/ICard";
 import SubType from "./SubType";
 
 /**

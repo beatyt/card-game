@@ -1,5 +1,5 @@
-import { Visibility } from "types/zones/Visibility"
-import { Area } from "types/zones/Area"
+import { Area } from "../../types/zones/Area"
+import { Visibility } from "../../types/zones/Visibility"
 
 export default class Zone {
   /**

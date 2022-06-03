@@ -23,24 +23,24 @@ const handler = (d: Payload) => {
 
   if (d.name === GameEvents.GameInitialized) {
     console.log(players.startingPlayer)
-    players.decks.shuffle()
     Game.start()
+    players.decks?.shuffle()
   }
 
   if (d.name === GameEvents.GameStarted) {
-    Game.end()
+    // Game.end()
   }
 
   if (d.name === GameEvents.GameEnded) {
     // scoring?
-    Game.rollback()
+    // Game.rollback()
   }
 
   if (d.name === GameEvents.DecksShuffled) {
-    console.log('gameState', gameState.players?.players.map(p => p.deck))
+    console.log('gameState', gameState.players?.players?.map(p => p.deck))
   }
 
-  if (d.name === GameEvents.TurnProgression) {
+  if (d.name !== GameEvents.TurnProgression) {
     console.log('Turn progressed', d.gameState.turnPhase)
 
     if (d.gameState.turnPhase !== TurnPhase.UpkeepStart) {

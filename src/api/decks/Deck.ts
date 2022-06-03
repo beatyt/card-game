@@ -1,4 +1,4 @@
-import ICard from "../../game/cards/ICard";
+import ICard from "../cards/ICard";
 import IDeck from "./IDeck";
 
 /**

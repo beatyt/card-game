@@ -17,13 +17,21 @@ class Players {
 
   static instance: Players
 
-  readonly players: Player[]
-  readonly hands: Hands
-  readonly decks: Decks
+  players: Player[] | undefined
+  hands: Hands | undefined
+  decks: Decks | undefined
 
-  constructor(
-    readonly playerInitializers: PlayerInitializer[]
-  ) {
+  private constructor() { }
+
+  static getInstance(): Players {
+    if (!Players.instance) {
+      Players.instance = new Players()
+    }
+
+    return Players.instance
+  }
+
+  init(playerInitializers: PlayerInitializer[]) {
     this.players = playerInitializers.map(p => {
       const deck = CardTranslator.getInstance().lookupCards(p.deck)
       return new Player(new Deck(deck), new Hand())
@@ -33,16 +41,6 @@ class Players {
     this.decks = new Decks(this.players.map(p => p.deck))
 
     this.startingPlayer = selectRandomPlayer(this.players)
-
-    Players.instance = this
-  }
-
-  static getInstance(): Players {
-    if (!Players.instance) {
-      throw new Error("Not initialized")
-    }
-
-    return Players.instance
   }
 }
 

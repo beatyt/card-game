@@ -97,13 +97,6 @@
     /* Completeness */
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */,
-    "baseUrl": "./src",
-    "paths": {
-      "@actions/*": ["actions/*"],
-      "@api/*": ["api/*"],
-      "@game/*": ["game/*"],
-      "@types/*": ["types/*"],
-    },
     "moduleResolution": "node"
   },
   "include": [

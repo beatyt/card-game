@@ -1,4 +1,4 @@
-import GamePhase from "@api/GamePhase";
+import GamePhase from "./GamePhase";
 import IGameState, { IGameStateData } from "./IGameState";
 
 class GameState implements IGameState {
