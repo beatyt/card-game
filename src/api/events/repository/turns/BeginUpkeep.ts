@@ -2,7 +2,7 @@ import TurnPhase from "../../../phases/TurnPhase"
 import GameEvent from "../../GameEvent"
 import GameEvents from "../../GameEvents"
 import { IGameStateData } from "../../../../game/IGameState"
-import GamePhase from "../../../game/GamePhase"
+import GamePhase from "@api/GamePhase"
 
 class BeginUpkeep implements GameEvent {
   name = GameEvents.TurnProgression
