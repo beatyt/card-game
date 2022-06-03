@@ -3,7 +3,7 @@ enum GameEvents {
   GameStarted = "Game:Started",
   GameEnded = "Game:Ended",
 
-  HandsShuffled = "Hands:Shuffled",
+  DecksShuffled = "Decks:Shuffled",
 
   TurnProgression = "Turn:Progression",
 

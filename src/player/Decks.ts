@@ -1,5 +1,5 @@
 import EventTracker from "../events/EventTracker"
-import ShuffleDecks from "../events/repository/hands/ShuffleHands"
+import ShuffleDecks from "../events/repository/cards/ShuffleDecks"
 import Deck from "../deck/Deck"
 
 /**

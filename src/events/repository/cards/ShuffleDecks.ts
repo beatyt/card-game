@@ -7,7 +7,7 @@ import shuffleCards from "../../../actions/ShuffleCards";
  * Shuffle the decks for all players
  */
 class ShuffleDecks implements GameEvent {
-  name = GameEvents.HandsShuffled
+  name = GameEvents.DecksShuffled
 
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     if (!gameState.players?.players) {

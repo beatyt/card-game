@@ -37,7 +37,7 @@ const handler = (d: Payload) => {
     Game.rollback()
   }
 
-  if (d.name === GameEvents.HandsShuffled) {
+  if (d.name === GameEvents.DecksShuffled) {
     console.log('gameState', gameState.players?.players.map(p => p.deck))
   }
 
