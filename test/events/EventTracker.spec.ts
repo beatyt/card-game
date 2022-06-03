@@ -5,7 +5,7 @@ import GameInitialized from "../../src/events/repository/game/GameInitialized"
 import { GameEvents } from "../../src/events"
 import Library from "../../src/cards/Library"
 import GameState from "../../src/game/GameState"
-import Players from "../../src/player/Players"
+import Players from "../../src/game/players/Players"
 
 describe('Events', () => {
   beforeEach(() => {

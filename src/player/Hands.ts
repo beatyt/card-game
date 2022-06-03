@@ -1,17 +1,15 @@
 import EventTracker from "../events/EventTracker"
-import ShuffleHands from "../events/repository/hands/ShuffleHands"
 import ICard from "../cards/ICard"
 
+/**
+ * Functions for all player's hands
+ */
 class Hands {
   eventTracker: EventTracker = EventTracker.getInstance()
 
   constructor(
     private readonly cards: ICard[][]
   ) { }
-
-  shuffle() {
-    this.eventTracker.dispatch(new ShuffleHands())
-  }
 }
 
 export default Hands

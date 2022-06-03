@@ -1,5 +1,5 @@
 import { IGameStateData } from "../game/IGameState";
-import Players from "../player/Players";
+import Players from "../game/players/Players";
 import GameEvents from "./GameEvents";
 
 interface Payload {

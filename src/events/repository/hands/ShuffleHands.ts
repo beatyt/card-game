@@ -3,7 +3,10 @@ import GameEvent from "../../GameEvent";
 import GameEvents from "../../GameEvents";
 import shuffleCards from "../../../actions/ShuffleCards";
 
-class ShuffleHands implements GameEvent {
+/**
+ * Shuffle the decks for all players
+ */
+class ShuffleDecks implements GameEvent {
   name = GameEvents.HandsShuffled
 
   apply(gameState: IGameStateData): Partial<IGameStateData> {
@@ -19,4 +22,4 @@ class ShuffleHands implements GameEvent {
   }
 }
 
-export default ShuffleHands
+export default ShuffleDecks

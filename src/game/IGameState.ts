@@ -1,5 +1,5 @@
 import GamePhase from "./GamePhase"
-import Players from "../player/Players"
+import Players from "./players/Players"
 import TurnPhase from "../phases/TurnPhase"
 import Zones from "../zones/Zones"
 

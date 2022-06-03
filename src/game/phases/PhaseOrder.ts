@@ -1,6 +1,6 @@
-import GameEvent from "../events/GameEvent"
-import TurnStart from "../events/repository/turns/TurnStart"
-import TurnPhase from "./TurnPhase"
+import GameEvent from "../../events/GameEvent"
+import TurnStart from "../../events/repository/turns/TurnStart"
+import TurnPhase from "../../phases/TurnPhase"
 
 class PhaseOrder {
   phases: Map<TurnPhase, () => GameEvent> = new Map()

@@ -25,6 +25,7 @@ class Zones {
     this.zoneCardMap = new Map()
   }
 
+  // @todo modifies state so make it an event or action
   moveCardToZone(card: ICard, zones: ZoneChangeEvent) {
     const fromZone = zones.from
     const targetZone = zones.to

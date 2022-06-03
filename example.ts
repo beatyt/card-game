@@ -24,7 +24,7 @@ const handler = (d: Payload) => {
 
   if (d.name === GameEvents.GameInitialized) {
     console.log(players.startingPlayer)
-    players.hands().shuffle()
+    players.decks.shuffle()
     Game.start()
   }
 

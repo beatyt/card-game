@@ -1,17 +1,24 @@
-import selectRandomPlayer from "../actions/SelectRandomPlayer"
-import Hands from "./Hands";
+import selectRandomPlayer from "../../actions/SelectRandomPlayer"
+import Hands from "../../player/Hands";
 import CardTranslator from "../cards/CardTranslator";
-import Player from "../player/Player";
-import { PlayerInitializer } from "./PlayerInitializer";
-import Deck from "../deck/Deck";
+import Player from "../../player/Player";
+import { PlayerInitializer } from "../../player/PlayerInitializer";
+import Deck from "../../deck/Deck";
+import Decks from "../../player/Decks";
 
 /**
  * Offers convenience methods for accessing the state of the players
+ * 
+ * If you need to access an individual player's hand, do something else
  */
 class Players {
   startingPlayer?: Player
+
   static instance: Players
+
   readonly players: Player[]
+  readonly hands: Hands
+  readonly decks: Decks
 
   constructor(
     readonly playerInitializers: PlayerInitializer[]
@@ -20,6 +27,9 @@ class Players {
       const deck = CardTranslator.getInstance().lookupCards(p.deck)
       return new Player(new Deck(deck), [])
     })
+
+    this.hands = new Hands(this.players.map(p => p.hand))
+    this.decks = new Decks(this.players.map(p => p.deck))
 
     this.startingPlayer = selectRandomPlayer(this.players)
 
@@ -32,11 +42,6 @@ class Players {
     }
 
     return Players.instance
-  }
-
-  hands(): Hands {
-    const hands = this.players.map(p => p.hand)
-    return new Hands(hands)
   }
 }
 

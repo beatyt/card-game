@@ -2,7 +2,7 @@ import IGameState, { IGameStateData } from '../game/IGameState'
 import EventEmitter from 'events'
 import GameEvent from './GameEvent'
 import IEventTracker from './IEventTracker'
-import Players from '../player/Players'
+import Players from '../game/players/Players'
 import GameState from '../game/GameState'
 
 /**

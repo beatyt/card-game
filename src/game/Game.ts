@@ -2,12 +2,12 @@ import PlayerInitializer from '../player'
 import EventTracker from "../events/EventTracker"
 import GameStart from "../events/repository/game/GameStart"
 import GameInitialized from '../events/repository/game/GameInitialized'
-import Players from '../player/Players'
+import Players from './players/Players'
 import IGameState from './IGameState'
 import GameEnd from '../events/repository/game/GameEnd'
-import CardTranslator from '../cards/CardTranslator'
+import CardTranslator from './cards/CardTranslator'
 import TurnStart from '../events/repository/turns/TurnStart'
-import PhaseOrder from '../phases/PhaseOrder'
+import PhaseOrder from './phases/PhaseOrder'
 import TurnPhase from 'phases/TurnPhase'
 
 export interface GameConfig {
