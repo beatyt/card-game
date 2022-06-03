@@ -1,8 +1,7 @@
-import { Payload } from './src/events'
-import PlayerInitializer from './src/player'
+import { Payload } from './src/api/events'
+import PlayerInitializer from './src/api/players'
 import { Game, GameEvents } from './src/index'
-import TurnStart from './src/events/repository/turns/TurnStart'
-import TurnPhase from './src/phases/TurnPhase'
+import TurnPhase from './src/api/phases/TurnPhase'
 
 const players: PlayerInitializer[] = [
   {

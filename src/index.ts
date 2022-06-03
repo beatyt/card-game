@@ -1,4 +1,4 @@
-import Game from './game/Game'
-import { GameEvents } from './events'
+import Game from './api/Game'
+import { GameEvents } from './api/events'
 
 export { Game, GameEvents }

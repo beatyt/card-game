@@ -1,4 +1,4 @@
-import ICard from "../cards/ICard";
+import ICard from "../game/cards/ICard";
 
 /**
  * Uses a Schwartzian transform

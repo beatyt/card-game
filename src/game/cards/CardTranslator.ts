@@ -1,6 +1,6 @@
-import Deck from "../../deck/Deck";
-import ICard from "../../cards/ICard";
-import map from '../../cards'
+import Deck from "../../api/decks/Deck";
+import ICard from "./ICard";
+import map from '.'
 
 export interface ICardTranslator {
   lookupCard(cardUri: string): ICard | undefined

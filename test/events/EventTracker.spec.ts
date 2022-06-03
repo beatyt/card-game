@@ -1,11 +1,11 @@
-import { Game, GamePhase } from "../../src/game"
-import EventTracker from "../../src/events/EventTracker"
-import GameStart from "../../src/events/repository/game/GameStart"
-import GameInitialized from "../../src/events/repository/game/GameInitialized"
-import { GameEvents } from "../../src/events"
-import Library from "../../src/cards/Library"
+import { Game, GamePhase } from "../../src/api"
+import EventTracker from "../../src/api/events/EventTracker"
+import GameStart from "../../src/api/events/repository/game/GameStart"
+import GameInitialized from "../../src/api/events/repository/game/GameInitialized"
+import { GameEvents } from "../../src/api/events"
+import Library from "../../src/game/cards/Library"
 import GameState from "../../src/game/GameState"
-import Players from "../../src/game/players/Players"
+import Players from "../../src/api/players/Players"
 
 describe('Events', () => {
   beforeEach(() => {

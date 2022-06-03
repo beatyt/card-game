@@ -1,4 +1,4 @@
-import Player from "player/Player"
+import Player from "api/players/Player"
 
 const selectRandomPlayer = (players: Player[]): Player => {
   const random = Math.floor(Math.random() * players.length)

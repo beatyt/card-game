@@ -1,5 +1,5 @@
-import Library from "../../src/cards/Library"
-import Game from "../../src/game/Game"
+import Library from "../../src/game/cards/Library"
+import Game from "../../src/api/Game"
 import GamePhase from "../../src/game/GamePhase"
 import GameState from "../../src/game/GameState"
 
