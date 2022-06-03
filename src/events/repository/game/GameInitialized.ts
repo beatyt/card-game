@@ -1,9 +1,8 @@
-import { IGameStateData } from "../../game/IGameState";
-import { GamePhase } from "../../game";
-import GameEvent from "../GameEvent";
-import GameEvents from "../GameEvents";
-import Players from "../../player/Players";
-import PlayerInitializer from "player";
+import { IGameStateData } from "../../../game/IGameState";
+import { GamePhase } from "../../../game";
+import GameEvent from "../../GameEvent";
+import GameEvents from "../../GameEvents";
+import Players from "../../../player/Players";
 
 class GameInitialize implements GameEvent {
   name = GameEvents.GameInitialized
