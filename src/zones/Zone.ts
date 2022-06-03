@@ -1,11 +1,12 @@
-type Visibility = 'public' | 'private'
+import { Visibility } from "types/zones/Visibility"
+import { Area } from "types/zones/Area"
 
 export default class Zone {
   /**
    * Can anyone view this zone ex: graveyard or is it private ex: hand
    */
   visibility: Visibility
-  zone: string
+  zone: Area
 
   static readonly Hand = "Hand"
   static readonly Graveyard = "Graveyard"
@@ -16,10 +17,10 @@ export default class Zone {
   static readonly Command = "Command"
 
   constructor(
-    zone: string,
+    zone: Area,
     visibility: Visibility
   ) {
-    this.zone = zone,
+    this.zone = zone
     this.visibility = visibility
   }
 }

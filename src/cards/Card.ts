@@ -27,9 +27,7 @@ abstract class Card implements ICard {
   abilities!: Ability[]
 
   // ex: Draw A Card
-  effects(): Effect[] {
-    throw new Error("Method not implemented.");
-  }
+  effects!: Effect[]
 
   resolve(): void {
     throw new Error("Method not implemented.");
