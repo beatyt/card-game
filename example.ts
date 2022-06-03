@@ -44,9 +44,14 @@ const handler = (d: Payload) => {
   if (d.name === GameEvents.TurnProgression) {
     console.log('Turn progressed', d.gameState.turnPhase)
 
-    if (d.gameState.turnPhase !== TurnPhase.Upkeep) {
-      Game.setPhase(TurnPhase.Upkeep) // ex: user clicks a button, fire this
+    if (d.gameState.turnPhase !== TurnPhase.UpkeepStart) {
+      Game.setPhase(TurnPhase.UpkeepStart) // ex: user clicks a button, fire this
     }
+  }
+
+  if (d.name === GameEvents.MoveCardToZone) {
+    console.log("A card moved")
+    // Do animations or w/e
   }
 }
 

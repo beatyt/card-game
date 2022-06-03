@@ -5,6 +5,7 @@ export default class Zone {
    * Can anyone view this zone ex: graveyard or is it private ex: hand
    */
   visibility: Visibility
+  zone: string
 
   static readonly Hand = "Hand"
   static readonly Graveyard = "Graveyard"
@@ -15,8 +16,10 @@ export default class Zone {
   static readonly Command = "Command"
 
   constructor(
+    zone: string,
     visibility: Visibility
   ) {
+    this.zone = zone,
     this.visibility = visibility
   }
 }

@@ -7,7 +7,8 @@ class PhaseOrder {
   static instance: PhaseOrder
 
   private constructor() {
-    this.phases.set(TurnPhase.Upkeep, () => new TurnStart())
+    this.phases.set(TurnPhase.UpkeepStart, () => new TurnStart())
+    this.phases.set(TurnPhase.UpkeepEnd, () => new TurnStart())
     this.phases.set(TurnPhase.Draw, () => new TurnStart())
     this.phases.set(TurnPhase.Main, () => new TurnStart())
     this.phases.set(TurnPhase.Combat, () => new TurnStart())
