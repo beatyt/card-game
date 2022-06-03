@@ -4,7 +4,7 @@ import GameEvents from "../../GameEvents"
 import { IGameStateData } from "../../../game/IGameState"
 import GamePhase from "../../../game/GamePhase"
 
-class TurnStart implements GameEvent {
+class EndUpkeep implements GameEvent {
   name = GameEvents.TurnProgression
 
   apply(gameState: IGameStateData): Partial<IGameStateData> {
@@ -13,9 +13,9 @@ class TurnStart implements GameEvent {
     }
 
     return {
-      turnPhase: TurnPhase.TurnStart
+      turnPhase: TurnPhase.UpkeepEnd
     }
   }
 }
 
-export default TurnStart
+export default EndUpkeep

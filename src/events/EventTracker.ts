@@ -52,11 +52,12 @@ class EventTracker implements IEventTracker {
   }
 
   undoLast(): void {
+    // undo the last event
     this.eventStack.pop()
     this.gameStates.pop()
 
+    // restores state from the previous
     const lastState = this.gameStates[this.gameStates.length - 1]
-
     GameState.getInstance().data = lastState
 
     this.emitter.emit('GameEvent', {

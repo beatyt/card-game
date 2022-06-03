@@ -6,6 +6,8 @@ enum GameEvents {
   HandsShuffled = "Hands:Shuffled",
 
   TurnProgression = "Turn:Progression",
+
+  MoveCardToZone = "Card:Move",
 }
 
 export default GameEvents
