@@ -1,7 +1,7 @@
-import { IGameStateData } from "../../game/IGameState";
-import GameEvent from "../GameEvent";
-import GameEvents from "../GameEvents";
-import shuffleCards from "../../actions/ShuffleCards";
+import { IGameStateData } from "../../../game/IGameState";
+import GameEvent from "../../GameEvent";
+import GameEvents from "../../GameEvents";
+import shuffleCards from "../../../actions/ShuffleCards";
 
 class ShuffleHands implements GameEvent {
   name = GameEvents.HandsShuffled

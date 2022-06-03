@@ -1,6 +1,6 @@
 import PlayerInitializer from '../player'
 import EventTracker from "../events/EventTracker"
-import GameStart from "../events/repository/GameStart"
+import GameStart from "../events/repository/game/GameStart"
 import GameInitialized from '../events/repository/GameInitialized'
 import Players from '../player/Players'
 import IGameState from './IGameState'

@@ -1,5 +1,5 @@
 import EventTracker from "../events/EventTracker"
-import ShuffleHands from "../events/repository/ShuffleHands"
+import ShuffleHands from "../events/repository/hands/ShuffleHands"
 import ICard from "../cards/ICard"
 
 class Hands {

@@ -1,4 +1,4 @@
-import GameStart from './GameStart'
+import GameStart from './game/GameStart'
 import GameInitialized from './GameInitialized'
 import GameEnd from './GameEnd'
 

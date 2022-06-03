@@ -1,7 +1,7 @@
-import IGameState, { IGameStateData } from "../../game/IGameState";
-import { GamePhase } from "../../game";
-import GameEvent from "../GameEvent";
-import GameEvents from "../GameEvents";
+import { IGameStateData } from "../../../game/IGameState";
+import { GamePhase } from "../../../game";
+import GameEvent from "../../GameEvent";
+import GameEvents from "../../GameEvents";
 
 class GameStart implements GameEvent {
   name = GameEvents.GameStarted
