@@ -19,7 +19,7 @@ const players: PlayerInitializer[] = [
 const handler = (d: Payload) => {
   // console.log('Hello world', d)
 
-  const { gameState, players } = d
+  const { name, gameState, players } = d
 
   if (d.name === GameEvents.GameInitialized) {
     console.log(players.startingPlayer)
@@ -27,28 +27,28 @@ const handler = (d: Payload) => {
     players.decks?.shuffle()
   }
 
-  if (d.name === GameEvents.GameStarted) {
+  if (name === GameEvents.GameStarted) {
     // Game.end()
   }
 
-  if (d.name === GameEvents.GameEnded) {
+  if (name === GameEvents.GameEnded) {
     // scoring?
     // Game.rollback()
   }
 
-  if (d.name === GameEvents.DecksShuffled) {
+  if (name === GameEvents.DecksShuffled) {
     console.log('gameState', gameState.players?.players?.map(p => p.deck))
   }
 
-  if (d.name !== GameEvents.TurnProgression) {
-    console.log('Turn progressed', d.gameState.turnPhase)
+  if (name === GameEvents.TurnProgression) {
+    console.log('Turn progressed', gameState.turnPhase)
 
-    if (d.gameState.turnPhase !== TurnPhase.UpkeepStart) {
-      Game.setPhase(TurnPhase.UpkeepStart) // ex: user clicks a button, fire this
-    }
+    // if (gameState.turnPhase !== TurnPhase.UpkeepStart) {
+    //   Game.setPhase(TurnPhase.UpkeepStart) // ex: user clicks a button, fire this
+    // }
   }
 
-  if (d.name === GameEvents.MoveCardToZone) {
+  if (name === GameEvents.MoveCardToZone) {
     console.log("A card moved")
     // Do animations or w/e
   }
