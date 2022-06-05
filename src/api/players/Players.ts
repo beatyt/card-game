@@ -29,7 +29,7 @@ class Players implements IPlayers {
 
   init(playerInitializers: PlayerInitializer[]) {
     this.players = playerInitializers.map(p => {
-      const deck = CardTranslator.getInstance().lookupCards(p.deck)
+      const deck = CardTranslator.getInstance().lookupCards(p.deck.cardUris)
       return new Player(p.playerId, deck)
     })
 

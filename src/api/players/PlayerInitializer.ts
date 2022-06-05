@@ -4,7 +4,7 @@
 class PlayerInitializer {
   constructor(
     readonly playerId: string,
-    readonly deck: string[],
+    readonly deck: { name: string, cardUris: string[] },
     readonly name?: string,
   ) {
 

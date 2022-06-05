@@ -6,13 +6,16 @@ const players: PlayerInitializer[] = [
   {
     playerId: '1',
     name: 'Test Player',
-    deck: [
-      '1',
-      '1',
-      '1',
-      '1',
-      '2'
-    ]
+    deck: {
+      name: 'my-deck',
+      cardUris: [
+        '1',
+        '1',
+        '1',
+        '1',
+        '2'
+      ]
+    }
   }
 ]
 
