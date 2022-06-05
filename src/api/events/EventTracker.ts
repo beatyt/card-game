@@ -5,6 +5,7 @@ import Players from '../players/Players'
 import GameState from '../GameState'
 import { IGameStateData } from '../IGameState'
 import { Listener } from '../../types/Listener'
+import Payload from './Payload'
 
 /**
  * Tracks every event for the game to allow resets and rollbacks
@@ -12,7 +13,7 @@ import { Listener } from '../../types/Listener'
 class EventTracker implements IEventTracker {
   static instance: EventTracker
 
-  listeners!: Listener []
+  listeners!: Listener[]
   eventStack: GameEvent[] = []
   emitter = new EventEmitter()
   gameStates: IGameStateData[] = []
@@ -48,11 +49,12 @@ class EventTracker implements IEventTracker {
     // update game w/ new state
     GameState.getInstance().data = { ...currentState, ...newState }
 
+    console.log('Size of stack of game states', JSON.stringify(this.gameStates).length, 'bytes')
+
     this.emitter.emit('GameEvent', {
       name: event.name,
-      gameState: GameState.getInstance().data,
-      players: Players.getInstance()
-    })
+      gameState: GameState.getInstance().data
+    } as Payload)
   }
 
   undoLast(): void {
@@ -66,9 +68,8 @@ class EventTracker implements IEventTracker {
 
     this.emitter.emit('GameEvent', {
       name: 'Rollback',
-      gameState: GameState.getInstance().data,
-      players: Players.getInstance()
-    })
+      gameState: GameState.getInstance().data
+    } as Payload)
   }
 
   resetGame(): void {

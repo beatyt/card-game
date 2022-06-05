@@ -1,4 +1,6 @@
 enum GameEvents {
+  Rollback = "Rollback",
+
   GameInitialized = "Game:Initialized",
   GameStarted = "Game:Started",
   GameEnded = "Game:Ended",

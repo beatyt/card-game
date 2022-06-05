@@ -13,8 +13,8 @@ interface IGameState {
 export interface IGameStateData {
   gamePhase?: GamePhase,
   turnPhase?: TurnPhase,
-  players?: Players | undefined,
-  zones?: Zones | undefined,
+  players?: Players,
+  zones?: Zones,
 }
 
 export default IGameState

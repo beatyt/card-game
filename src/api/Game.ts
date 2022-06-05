@@ -11,6 +11,8 @@ import TurnPhase from './phases/TurnPhase'
 import IGameState from './IGameState'
 import InternalListener from './events/InternalListener'
 import { Listener } from '../types/Listener'
+import ShuffleDecks from './events/repository/cards/ShuffleDecks'
+import ICard from './cards/ICard'
 
 export interface GameConfig {
   players: PlayerInitializer[],
@@ -24,6 +26,23 @@ let gameState: IGameState = {
 
 export default {
   gameState,
+  // namespaces for dispatching actions
+  Players: {
+    drawCard(): ICard {
+      throw new Error("Method not implemented.");
+    },
+    drawCards(num: number): ICard[] {
+      throw new Error("Method not implemented.");
+    }
+  },
+  Decks: {
+    shuffle() {
+      EventTracker.getInstance().dispatch(new ShuffleDecks())
+    },
+  },
+  Hands: {
+
+  },
   init: (gameConfig: GameConfig) => {
     events = EventTracker.getInstance()
     events.init([...gameConfig.listeners, ...InternalListener.listeners] || [])

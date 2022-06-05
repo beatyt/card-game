@@ -16,14 +16,19 @@ const players: PlayerInitializer[] = [
 ]
 
 const handler = (d: Payload) => {
-  // console.log('Hello world', d)
+  const { name, gameState } = d
+  const { players, gamePhase, turnPhase, zones } = gameState
 
-  const { name, gameState, players } = d
+  const hands = players?.hands
+  const decks = players?.decks
+
+  const handCards = hands?.cards
+  const deckCards = decks?.cards
 
   if (d.name === GameEvents.GameInitialized) {
-    console.log(players.startingPlayer)
+    console.log(players?.startingPlayer)
     Game.start()
-    players.decks?.shuffle()
+    Game.Decks.shuffle()
   }
 
   if (name === GameEvents.GameStarted) {

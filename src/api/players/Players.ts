@@ -17,9 +17,9 @@ class Players {
 
   static instance: Players
 
-  players: Player[] | undefined
-  hands: Hands | undefined
-  decks: Decks | undefined
+  players?: Player[]
+  hands?: Hands
+  decks?: Decks
 
   private constructor() { }
 
