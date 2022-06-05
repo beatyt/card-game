@@ -2,6 +2,7 @@
  * TypeScript does not have expanded enums
  */
 class CardType {
+  cardType: string
   permanent: boolean
 
   static readonly Artifact = "Artifact"
@@ -12,8 +13,10 @@ class CardType {
   static readonly Sorcery = "Sorcery"
 
   constructor(
+    cardType: string,
     permanent: boolean
   ) {
+    this.cardType = cardType
     this.permanent = permanent
   }
 }

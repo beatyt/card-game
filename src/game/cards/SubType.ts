@@ -1,10 +1,8 @@
 enum SubType {
-  Artifact = "Artifact",
-  Creature = "Creature",
-  Enchantment = "Enchantment",
-  Instant = "Instant",
-  Land = "Land",
-  Sorcery = "Sorcery",
+  Elf = "Elf",
+  Knight = "Knight",
+  Warrior = "Warrior",
+  Vampire = "Vampire"
 }
 
 export default SubType

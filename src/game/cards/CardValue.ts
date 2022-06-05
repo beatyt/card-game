@@ -1,7 +1,7 @@
 class CardValue {
   constructor(
     private readonly baseValue: number,
-    private boostedValue: number,
+    private boostedValue = 0
   ) { }
 
   /**
