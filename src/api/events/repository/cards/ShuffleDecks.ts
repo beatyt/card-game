@@ -12,11 +12,11 @@ class ShuffleDecks implements GameEvent {
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     console.debug('players for shuffle', gameState)
 
-    if (!gameState.players?.players) {
+    if (!gameState.playerData?.players) {
       throw new Error("Called w/o having players")
     }
 
-    for (let player of gameState.players?.players) {
+    for (let player of gameState.playerData?.players) {
       player.deck.cards = shuffleCards(player.deck.cards)
     }
 

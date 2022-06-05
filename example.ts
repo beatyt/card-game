@@ -4,6 +4,7 @@ import { Game, GameEvents } from './src/index'
 
 const players: PlayerInitializer[] = [
   {
+    playerId: '1',
     name: 'Test Player',
     deck: [
       '1',
@@ -17,16 +18,17 @@ const players: PlayerInitializer[] = [
 
 const handler = (d: Payload) => {
   const { name, gameState } = d
-  const { players, gamePhase, turnPhase, zones } = gameState
+  const { playerData, gamePhase, turnPhase, zones } = gameState
 
-  const hands = players?.hands
-  const decks = players?.decks
+  const players = playerData?.players
+  const hands = playerData?.hands
+  const decks = playerData?.decks
 
-  const handCards = hands?.cards
-  const deckCards = decks?.cards
+  const handCards = hands?.map(h => h.cards)
+  const deckCards = decks?.map(h => h.cards)
 
   if (d.name === GameEvents.GameInitialized) {
-    console.log(players?.startingPlayer)
+    console.log('startingPlayer', playerData?.startingPlayer)
     Game.start()
     Game.Decks.shuffle()
   }
@@ -41,7 +43,7 @@ const handler = (d: Payload) => {
   }
 
   if (name === GameEvents.DecksShuffled) {
-    console.log('gameState', gameState.players?.players?.map(p => p.deck))
+    console.log('gameState', gameState.playerData?.players?.map(p => p.deck))
   }
 
   if (name === GameEvents.TurnProgression) {

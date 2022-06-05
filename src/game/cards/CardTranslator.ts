@@ -5,7 +5,6 @@ import map from '.'
 export interface ICardTranslator {
   lookupCard(cardUri: string): ICard | undefined
   lookupCards(cardUris: string[]): ICard[]
-  lookupDecks(cardUris: string[][]): Deck[]
 }
 
 class CardTranslator implements ICardTranslator {
@@ -51,20 +50,6 @@ class CardTranslator implements ICardTranslator {
     console.timeEnd('Card Lookup')
     
     return cards;
-  }
-
-  lookupDecks(cardUris: string[][]): Deck[] {
-    console.time('Loading Decks')
-
-    const decks = cardUris.map(cardUris => {
-      const cards = this.lookupCards(cardUris)
-      const deck = new Deck(cards)
-      return deck
-    })
-
-    console.timeEnd('Loading Decks')
-
-    return decks
   }
 }
 

@@ -12,7 +12,7 @@ class GameInitialize implements GameEvent {
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     return {
       gamePhase: GamePhase.Initialized,
-      players: Players.getInstance()
+      playerData: Players.getInstance()
     }
   }
 }
