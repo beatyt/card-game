@@ -1,12 +1,12 @@
 import { IGameStateData } from "../IGameState"
-import { GameEvents } from "./GameEvents"
+import { CardEvents, GameEvents } from "./GameEvents"
 
 /**
  * Modifies game state by taking the current state
  * and returning new modifications to make
  */
 interface GameEvent {
-  name: GameEvents
+  name: GameEvents | CardEvents
 
   /**
    * Returns the diff to add

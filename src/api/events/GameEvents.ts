@@ -13,22 +13,20 @@ enum GameEvents {
   GameStarted = "Game:Started",
   GameEnded = "Game:Ended",
 
-  DecksShuffled = "Decks:Shuffled",
-
   TurnProgression = "Turn:Progression",
-
-  MoveCardToZone = "Card:Move",
-  CardDraw = "Card:Draw",
 }
 
 enum CardEvents {
   CardDrawn = "Card:Drawn",
+  MoveCardToZone = "Card:Move",
+  CardDraw = "Card:Draw",
+  DecksShuffled = "Decks:Shuffled",
 }
 
 export type CardEventPayloads = CardDrawnEvent
 
 export type CardDrawnEvent = {
-  name: CardEvents.CardDrawn,
+  name: CardEvents,
   payload: {
     playerId: string,
     card: ICard

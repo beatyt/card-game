@@ -1,5 +1,5 @@
 import GameEvent from "../../GameEvent";
-import { GameEvents } from "../../GameEvents";
+import { CardEvents } from "../../GameEvents";
 import shuffleCards from "../../../../actions/ShuffleCards";
 import { IGameStateData } from "../../../IGameState";
 
@@ -7,7 +7,7 @@ import { IGameStateData } from "../../../IGameState";
  * Shuffle the decks for all players
  */
 class ShuffleDecks implements GameEvent {
-  name = GameEvents.DecksShuffled
+  name = CardEvents.DecksShuffled
 
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     console.debug('players for shuffle', gameState)

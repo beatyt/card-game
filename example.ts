@@ -51,9 +51,7 @@ const handler = (d: Payload) => {
     // Game.rollback()
   }
 
-  if (name === GameEvents.DecksShuffled) {
-    console.log('gameState', gameState.playerData?.players?.map(p => p.deck))
-  }
+
 
   if (name === GameEvents.TurnProgression) {
     console.log('Turn progressed', gameState.turnPhase)
@@ -62,11 +60,6 @@ const handler = (d: Payload) => {
     //   Game.setPhase(TurnPhase.UpkeepStart) // ex: user clicks a button, fire this
     // }
   }
-
-  if (name === GameEvents.MoveCardToZone) {
-    console.log("A card moved")
-    // Do animations or w/e
-  }
 }
 
 const cardEventHandler = (d: CardEventPayloads) => {
@@ -74,6 +67,15 @@ const cardEventHandler = (d: CardEventPayloads) => {
 
   if (d.name === CardEvents.CardDrawn) {
     console.log(d.payload)
+  }
+
+  if (d.name === CardEvents.DecksShuffled) {
+    console.log(d.payload)
+  }
+
+  if (d.name === CardEvents.MoveCardToZone) {
+    console.log("A card moved")
+    // Do animations or w/e
   }
 }
 
