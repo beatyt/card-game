@@ -21,6 +21,23 @@ const players: PlayerInitializer[] = [
         '2',
       ]
     }
+  },
+  {
+    playerId: '2',
+    name: 'Test Player',
+    deck: {
+      name: 'my-deck',
+      cardUris: [
+        '1',
+        '1',
+        '1',
+        '1',
+        '2',
+        '2',
+        '2',
+        '2',
+      ]
+    }
   }
 ]
 

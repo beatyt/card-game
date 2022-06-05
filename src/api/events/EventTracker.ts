@@ -6,6 +6,7 @@ import { IGameStateData } from '../IGameState'
 import { Listener } from '../../types/Listener'
 import Payload from './Payload'
 import { CardEventPayloads } from './GameEvents'
+import { writeFileSync } from 'fs'
 
 /**
  * Tracks every event for the game to allow resets and rollbacks
@@ -54,6 +55,7 @@ class EventTracker implements IEventTracker {
     GameState.getInstance().data = { ...currentState, ...newState }
 
     console.log('Size of stack of game states', JSON.stringify(this.gameStates).length, 'bytes')
+    writeFileSync('gameStates.json', JSON.stringify({ eventStack: this.eventStack, gameStates: this.gameStates }))
 
     this.emitter.emit('GameEvent', {
       name: event.name,
