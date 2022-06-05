@@ -8,6 +8,7 @@ enum GameEvents {
   TurnProgression = "Turn:Progression",
 
   MoveCardToZone = "Card:Move",
+  CardDraw = "Card:Draw",
 }
 
 export default GameEvents

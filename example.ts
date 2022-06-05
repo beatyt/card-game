@@ -1,7 +1,6 @@
 import { Payload } from './src/api/events'
 import PlayerInitializer from './src/api/players'
 import { Game, GameEvents } from './src/index'
-import TurnPhase from './src/api/phases/TurnPhase'
 
 const players: PlayerInitializer[] = [
   {
@@ -51,6 +50,10 @@ const handler = (d: Payload) => {
   if (name === GameEvents.MoveCardToZone) {
     console.log("A card moved")
     // Do animations or w/e
+  }
+
+  if (name === GameEvents.CardDraw) {
+    console.log("A card was drawn")
   }
 }
 

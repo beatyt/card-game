@@ -4,6 +4,7 @@ import IEventTracker from './IEventTracker'
 import Players from '../players/Players'
 import GameState from '../GameState'
 import { IGameStateData } from '../IGameState'
+import { Listener } from '../../types/Listener'
 
 /**
  * Tracks every event for the game to allow resets and rollbacks
@@ -11,15 +12,15 @@ import { IGameStateData } from '../IGameState'
 class EventTracker implements IEventTracker {
   static instance: EventTracker
 
-  listeners: { event: string; callback: (...args: any[]) => void }[] | undefined
+  listeners!: Listener []
   eventStack: GameEvent[] = []
   emitter = new EventEmitter()
   gameStates: IGameStateData[] = []
 
   init(
-    listeners?: { event: string, callback: (...args: any[]) => void }[]
+    listeners: Listener[]
   ) {
-    listeners?.forEach(listener => {
+    listeners.forEach(listener => {
       this.emitter.addListener(listener.event, listener.callback)
     })
   }

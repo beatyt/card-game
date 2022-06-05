@@ -9,14 +9,15 @@ import TurnStart from './events/repository/turns/TurnStart'
 import PhaseOrder from '../game/phases/PhaseOrder'
 import TurnPhase from './phases/TurnPhase'
 import IGameState from './IGameState'
+import InternalListener from './events/InternalListener'
+import { Listener } from '../types/Listener'
 
 export interface GameConfig {
   players: PlayerInitializer[],
-  listeners?: { event: string, callback: (...args: any[]) => void }[]
+  listeners: Listener[]
 }
 
 let events: EventTracker
-let turn: number = 0
 let gameState: IGameState = {
   data: {}
 }
@@ -25,7 +26,7 @@ export default {
   gameState,
   init: (gameConfig: GameConfig) => {
     events = EventTracker.getInstance()
-    events.init(gameConfig.listeners || [])
+    events.init([...gameConfig.listeners, ...InternalListener.listeners] || [])
 
     // translate initializers to players
     Players.getInstance().init(gameConfig.players)
