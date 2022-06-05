@@ -1,6 +1,8 @@
 import selectRandomPlayer from "../../actions/SelectRandomPlayer";
 import CardTranslator from "../../game/cards/CardTranslator";
-import { IDeck, IHand, IPlayer, IPlayers } from "../IGameState";
+import Deck from "../decks/Deck";
+import Hand from "../decks/Hand";
+import { IPlayers } from "../IGameState";
 import Player from "./Player";
 import { PlayerInitializer } from "./PlayerInitializer";
 
@@ -14,10 +16,10 @@ class Players implements IPlayers {
 
   private constructor() { }
 
-  players: IPlayer[] = []
-  startingPlayer: IPlayer | undefined
-  hands: IHand[] = []
-  decks: IDeck[] = []
+  players: Player[] = []
+  startingPlayer: Player | undefined
+  hands: Hand[] = []
+  decks: Deck[] = []
 
   static getInstance(): Players {
     if (!Players.instance) {
@@ -37,6 +39,10 @@ class Players implements IPlayers {
     this.decks = this.players.map(p => p.deck)
 
     this.startingPlayer = selectRandomPlayer(this.players)
+  }
+
+  drawCards(num: number) {
+    this.players.forEach(p => p.drawCards(num))
   }
 }
 

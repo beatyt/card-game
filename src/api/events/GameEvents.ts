@@ -11,6 +11,7 @@ enum GameEvents {
 
   MoveCardToZone = "Card:Move",
   CardDraw = "Card:Draw",
+  CardDrawn = "Card:Drawn",
 }
 
 export default GameEvents

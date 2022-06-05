@@ -16,6 +16,8 @@ class ShuffleDecks implements GameEvent {
       throw new Error("Called w/o having players")
     }
 
+    // TODO: Able to call something like Players.Decks.shuffle()?
+
     for (let player of gameState.playerData?.players) {
       player.deck.cards = shuffleCards(player.deck.cards)
     }

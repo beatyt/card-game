@@ -16,6 +16,8 @@ abstract class Card implements ICard {
 
   cardUid!: string
 
+  ownerId!: string;
+
   power!: CardValue
 
   toughness!: CardValue

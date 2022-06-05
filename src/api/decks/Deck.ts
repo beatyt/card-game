@@ -18,8 +18,11 @@ class Deck implements IDeck {
     this.cards = cards
   }
 
-  drawCard(): ICard {
-    throw new Error("Method not implemented.");
+  /**
+   * Moves a card from here to the hand
+   */
+  drawCard(): ICard | undefined{
+    return this.cards.pop()
   }
 
   drawCards(num: number): ICard[] {

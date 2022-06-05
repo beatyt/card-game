@@ -9,6 +9,8 @@ interface ICard {
 
   cardUid: string
 
+  ownerId: string
+
   power: CardValue
 
   toughness: CardValue

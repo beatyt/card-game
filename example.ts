@@ -13,7 +13,10 @@ const players: PlayerInitializer[] = [
         '1',
         '1',
         '1',
-        '2'
+        '2',
+        '2',
+        '2',
+        '2',
       ]
     }
   }
@@ -34,6 +37,7 @@ const handler = (d: Payload) => {
     console.log('startingPlayer', playerData?.startingPlayer)
     Game.start()
     Game.Decks.shuffle()
+    Game.Players.drawCards(7)
   }
 
   if (name === GameEvents.GameStarted) {
@@ -62,7 +66,7 @@ const handler = (d: Payload) => {
     // Do animations or w/e
   }
 
-  if (name === GameEvents.CardDraw) {
+  if (name === GameEvents.CardDrawn) {
     console.log("A card was drawn")
   }
 }

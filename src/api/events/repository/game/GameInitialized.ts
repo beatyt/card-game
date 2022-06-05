@@ -7,8 +7,6 @@ import { IGameStateData } from "../../../IGameState";
 class GameInitialize implements GameEvent {
   name = GameEvents.GameInitialized
 
-  constructor() { }
-
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     return {
       gamePhase: GamePhase.Initialized,

@@ -13,6 +13,7 @@ import InternalListener from './events/InternalListener'
 import { Listener } from '../types/Listener'
 import ShuffleDecks from './events/repository/cards/ShuffleDecks'
 import ICard from './cards/ICard'
+import DrawCards from './events/repository/cards/DrawCards'
 
 export interface GameConfig {
   players: PlayerInitializer[],
@@ -28,11 +29,11 @@ export default {
   gameState,
   // namespaces for dispatching actions
   Players: {
-    drawCard(): ICard {
-      throw new Error("Method not implemented.");
+    drawCard() {
+      EventTracker.getInstance().dispatch(new DrawCards())
     },
-    drawCards(num: number): ICard[] {
-      throw new Error("Method not implemented.");
+    drawCards(num: number) {
+      EventTracker.getInstance().dispatch(new DrawCards(num))
     }
   },
   Decks: {
