@@ -1,4 +1,5 @@
 import { Listener } from "../../types/Listener";
+import { CardEventPayloads, EventTypes } from "./GameEvents";
 import Payload from "./Payload";
 
 /**
@@ -12,10 +13,20 @@ function handler(payload: Payload) {
   console.log('Internal:', name)
 }
 
+const cardEventHandler = (payload: CardEventPayloads) => {
+  const { name } = payload
+
+  console.log('Internal:', name)
+}
+
 const listeners: Listener[] = [
   {
     event: 'GameEvent',
     callback: handler
+  },
+  {
+    event: 'CardEvent',
+    callback: cardEventHandler
   }
 ]
 

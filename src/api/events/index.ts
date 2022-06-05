@@ -1,4 +1,4 @@
-import GameEvents from './GameEvents'
+import { GameEvents } from './GameEvents'
 import Payload from './Payload'
 
 export {

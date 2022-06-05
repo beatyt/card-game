@@ -1,5 +1,5 @@
 import GameEvent from "../../GameEvent";
-import GameEvents from "../../GameEvents";
+import { GameEvents } from "../../GameEvents";
 import shuffleCards from "../../../../actions/ShuffleCards";
 import { IGameStateData } from "../../../IGameState";
 

@@ -3,7 +3,7 @@ import Deck from "../decks/Deck";
 import { IPlayer } from "../IGameState";
 import ICard from "../cards/ICard";
 import EventTracker from "../events/EventTracker";
-import CardDrawn from "../events/repository/cards/CardDrawn";
+import { CardEvents } from "../events/GameEvents";
 
 /**
  * Internal class for a Player after all operations have been performed to map it from the PlayerInitializer
@@ -33,7 +33,13 @@ class Player implements IPlayer {
 
     this.hand.add(card)
 
-    EventTracker.getInstance().dispatch(new CardDrawn(this.playerId, card))
+    EventTracker.getInstance().dispatchNotifyingEvent({
+      name: CardEvents.CardDrawn,
+      payload: {
+        playerId: this.playerId,
+        card
+      }
+    })
   }
 
   drawCards(num: number) {

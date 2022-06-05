@@ -1,6 +1,8 @@
 import { Payload } from './src/api/events'
+import { CardEventPayloads, CardEvents } from './src/api/events/GameEvents'
 import PlayerInitializer from './src/api/players'
 import { Game, GameEvents } from './src/index'
+import { Listener } from './src/types/Listener'
 
 const players: PlayerInitializer[] = [
   {
@@ -65,16 +67,24 @@ const handler = (d: Payload) => {
     console.log("A card moved")
     // Do animations or w/e
   }
+}
 
-  if (name === GameEvents.CardDrawn) {
-    console.log("A card was drawn")
+const cardEventHandler = (d: CardEventPayloads) => {
+  console.log(d)
+
+  if (d.name === CardEvents.CardDrawn) {
+    console.log(d.payload)
   }
 }
 
-const listeners = [
+const listeners: Listener[] = [
   {
     event: 'GameEvent',
     callback: handler
+  },
+  {
+    event: 'CardEvent',
+    callback: cardEventHandler
   }
 ]
 

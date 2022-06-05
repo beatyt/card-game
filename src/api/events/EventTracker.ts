@@ -1,11 +1,11 @@
 import EventEmitter from 'events'
 import GameEvent from './GameEvent'
 import IEventTracker from './IEventTracker'
-import Players from '../players/Players'
 import GameState from '../GameState'
 import { IGameStateData } from '../IGameState'
 import { Listener } from '../../types/Listener'
 import Payload from './Payload'
+import { CardEventPayloads } from './GameEvents'
 
 /**
  * Tracks every event for the game to allow resets and rollbacks
@@ -34,7 +34,11 @@ class EventTracker implements IEventTracker {
     return EventTracker.instance
   }
 
-  dispatch(event: GameEvent) {
+  dispatchNotifyingEvent(event: CardEventPayloads) {
+    this.emitter.emit('CardEvent', event)
+  }
+
+  dispatchStateModifyingEvent(event: GameEvent) {
     // snapshots the current state
     const currentState = GameState.getInstance().data
     // this.gameStates.push({ ...currentState })

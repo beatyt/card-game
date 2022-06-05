@@ -1,7 +1,7 @@
 import GameEvent from "./GameEvent";
 
 interface IEventTracker {
-  dispatch(event: GameEvent): void
+  dispatchStateModifyingEvent(event: GameEvent): void
 
   undoLast(): void
 

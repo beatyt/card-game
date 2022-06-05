@@ -1,6 +1,6 @@
 import { GamePhase } from "../../..";
 import GameEvent from "../../GameEvent";
-import GameEvents from "../../GameEvents";
+import { GameEvents } from "../../GameEvents";
 import Players from "../../../players/Players";
 import { IGameStateData } from "../../../IGameState";
 

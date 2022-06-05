@@ -1,7 +1,7 @@
 import { IGameStateData } from "../../../IGameState";
 import Players from "../../../players/Players";
 import GameEvent from "../../GameEvent";
-import GameEvents from "../../GameEvents";
+import { GameEvents } from "../../GameEvents";
 
 /**
  * Shuffle the decks for all players

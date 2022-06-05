@@ -4,7 +4,6 @@ import GameStart from "./events/repository/game/GameStart"
 import GameInitialized from './events/repository/game/GameInitialized'
 import Players from './players/Players'
 import GameEnd from './events/repository/game/GameEnd'
-import CardTranslator from '../game/cards/CardTranslator'
 import TurnStart from './events/repository/turns/TurnStart'
 import PhaseOrder from '../game/phases/PhaseOrder'
 import TurnPhase from './phases/TurnPhase'
@@ -12,7 +11,6 @@ import IGameState from './IGameState'
 import InternalListener from './events/InternalListener'
 import { Listener } from '../types/Listener'
 import ShuffleDecks from './events/repository/cards/ShuffleDecks'
-import ICard from './cards/ICard'
 import DrawCards from './events/repository/cards/DrawCards'
 
 export interface GameConfig {
@@ -30,15 +28,15 @@ export default {
   // namespaces for dispatching actions
   Players: {
     drawCard() {
-      EventTracker.getInstance().dispatch(new DrawCards())
+      EventTracker.getInstance().dispatchStateModifyingEvent(new DrawCards())
     },
     drawCards(num: number) {
-      EventTracker.getInstance().dispatch(new DrawCards(num))
+      EventTracker.getInstance().dispatchStateModifyingEvent(new DrawCards(num))
     }
   },
   Decks: {
     shuffle() {
-      EventTracker.getInstance().dispatch(new ShuffleDecks())
+      EventTracker.getInstance().dispatchStateModifyingEvent(new ShuffleDecks())
     },
   },
   Hands: {
@@ -51,7 +49,7 @@ export default {
     // translate initializers to players
     Players.getInstance().init(gameConfig.players)
 
-    events.dispatch(new GameInitialized())
+    events.dispatchStateModifyingEvent(new GameInitialized())
   },
   /**
    * Starting player
@@ -60,11 +58,11 @@ export default {
    * Initialize stuff
   */
   start() {
-    events.dispatch(new GameStart())
-    events.dispatch(new TurnStart())
+    events.dispatchStateModifyingEvent(new GameStart())
+    events.dispatchStateModifyingEvent(new TurnStart())
   },
   end() {
-    events.dispatch(new GameEnd())
+    events.dispatchStateModifyingEvent(new GameEnd())
   },
   rollback() {
     events.undoLast()
@@ -83,7 +81,7 @@ export default {
 
     console.log('nextPhase', nextPhase())
 
-    events.dispatch(nextPhase())
+    events.dispatchStateModifyingEvent(nextPhase())
   },
   progressTurn: () => {
     // get current phase
@@ -99,6 +97,6 @@ export default {
       throw new Error("No next phase set")
     }
 
-    events.dispatch(nextPhase())
+    events.dispatchStateModifyingEvent(nextPhase())
   }
 }
