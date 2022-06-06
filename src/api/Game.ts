@@ -4,7 +4,7 @@ import GameStart from "./events/repository/game/GameStart"
 import GameInitialized from './events/repository/game/GameInitialized'
 import Players from './players/Players'
 import GameEnd from './events/repository/game/GameEnd'
-import TurnStart from './events/repository/turns/TurnStart'
+import TurnStart from './events/repository/phases/TurnStart'
 import PhaseOrder from '../game/phases/PhaseOrder'
 import TurnPhase from './phases/TurnPhase'
 import IGameState from './IGameState'
@@ -12,6 +12,7 @@ import InternalListener from './events/InternalListener'
 import { Listener } from '../types/Listener'
 import ShuffleDecks from './events/repository/cards/ShuffleDecks'
 import DrawCards from './events/repository/cards/DrawCards'
+import GameState from './GameState'
 
 export interface GameConfig {
   players: PlayerInitializer[],
@@ -85,7 +86,7 @@ export default {
   },
   progressTurn: () => {
     // get current phase
-    const currentPhase = gameState.data.turnPhase
+    const currentPhase = GameState.getInstance().data.turnPhase
 
     if (!currentPhase) {
       throw new Error("There is no current phase")

@@ -1,5 +1,6 @@
 import { GamePhase } from "../../..";
 import { IGameStateData } from "../../../IGameState";
+import TurnPhase from "../../../phases/TurnPhase";
 import GameEvent from "../../GameEvent";
 import { GameEvents } from "../../GameEvents";
 
@@ -8,7 +9,8 @@ class GameStart implements GameEvent {
 
   apply(gameState: IGameStateData): Partial<IGameStateData> {
     return {
-      gamePhase: GamePhase.Started
+      gamePhase: GamePhase.Started,
+      turnPhase: TurnPhase.TurnStart
     }
   }
 }

@@ -76,6 +76,7 @@ const handler = (d: Payload) => {
     // if (gameState.turnPhase !== TurnPhase.UpkeepStart) {
     //   Game.setPhase(TurnPhase.UpkeepStart) // ex: user clicks a button, fire this
     // }
+    Game.progressTurn()
   }
 }
 
