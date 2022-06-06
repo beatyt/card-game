@@ -1,6 +1,9 @@
 - [ ] Provide access to whose turn it is, starting with startingPlayer
 - [ ] Strategy for randomizing the order of player turns
 - [ ] Trigger the abilites that occur at the turn phase
+- [ ] TurnEvents
+- [ ] PlayerEvents
+- [ ] Conditions
 
 # Adding new state
 - Add it to IGameStateData on the appropriate object
