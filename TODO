@@ -4,6 +4,7 @@
 - [ ] TurnEvents
 - [ ] PlayerEvents
 - [ ] Conditions
+- [ ] Calculating mana costs and what happens if you don't have mana
 
 # Adding new state
 - Add it to IGameStateData on the appropriate object
