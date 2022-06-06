@@ -12,8 +12,9 @@ class EndTurn implements GameEvent {
       throw new Error("Game has not started. Please call Game.start() first")
     }
 
+    // TODO: Need to set which player's turn it is
     return {
-      turnPhase: TurnPhase.End
+      turnPhase: TurnPhase.TurnEnd
     }
   }
 }

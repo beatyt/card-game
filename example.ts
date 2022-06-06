@@ -80,6 +80,9 @@ const handler = (d: Payload) => {
   }
 }
 
+// turnEventHandler
+// event for starting player selected
+
 const cardEventHandler = (d: CardEventPayloads) => {
   console.log(d)
 
