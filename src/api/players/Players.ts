@@ -20,6 +20,7 @@ class Players implements IPlayers {
   startingPlayer: Player | undefined
   hands: Hand[] = []
   decks: Deck[] = []
+  currentTurnsPlayerId!: string;
 
   static getInstance(): Players {
     if (!Players.instance) {
@@ -39,6 +40,8 @@ class Players implements IPlayers {
     this.decks = this.players.map(p => p.deck)
 
     this.startingPlayer = selectRandomPlayer(this.players)
+    
+    this.currentTurnsPlayerId = this.startingPlayer.playerId
   }
 
   drawCards(num: number) {

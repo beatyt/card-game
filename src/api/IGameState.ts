@@ -38,6 +38,11 @@ export interface IPlayers {
   startingPlayer: IPlayer | undefined
 
   /**
+   * playerId for the current player
+   */
+  currentTurnsPlayerId: string
+
+  /**
    * Useful for getting the hands of all players
    */
   hands: IHand[]

@@ -1,11 +1,8 @@
 import { IGameStateData } from "../../../IGameState";
 import Players from "../../../players/Players";
 import GameEvent from "../../GameEvent";
-import { CardEvents, GameEvents } from "../../GameEvents";
+import { CardEvents } from "../../GameEvents";
 
-/**
- * Shuffle the decks for all players
- */
 class DrawCards implements GameEvent {
   name = CardEvents.CardDraw
 

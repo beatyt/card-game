@@ -1,4 +1,3 @@
-import { IPlayer } from "../api/IGameState"
 import Player from "../api/players/Player"
 
 const selectRandomPlayer = (players: Player[]): Player => {
