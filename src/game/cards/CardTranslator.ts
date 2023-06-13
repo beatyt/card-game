@@ -1,6 +1,5 @@
-import Deck from "../../api/decks/Deck";
-import ICard from "../../api/cards/ICard";
-import map from '.'
+import map from '.';
+import ICard from "./ICard";
 
 export interface ICardTranslator {
   lookupCard(cardUri: string): ICard | undefined
@@ -10,15 +9,9 @@ export interface ICardTranslator {
 class CardTranslator implements ICardTranslator {
   static instance: CardTranslator
 
-  cardUris?: string[]
-
   private constructor() {
     CardTranslator.instance = this
-   }
-
-   init(cardUris?: string[]) {
-    this.cardUris = cardUris
-   }
+  }
 
   static getInstance(): CardTranslator {
     if (!CardTranslator.instance) {
@@ -29,7 +22,7 @@ class CardTranslator implements ICardTranslator {
   }
 
   lookupCard(cardUri: string): ICard | undefined {
-    return map.map.get(cardUri)
+    return map.Library.get(cardUri)
   }
 
   lookupCards(cardUris: string[]): ICard[] {
@@ -48,7 +41,7 @@ class CardTranslator implements ICardTranslator {
     }
 
     console.timeEnd('Card Lookup')
-    
+
     return cards;
   }
 }

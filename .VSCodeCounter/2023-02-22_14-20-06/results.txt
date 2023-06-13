@@ -1,0 +1,177 @@
+Date : 2023-02-22 14:20:06
+Directory : c:\projects\card-game
+Total : 96 files,  10109 codes, 461 comments, 615 blanks, all 11185 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |      8,342 |          0 |          2 |      8,344 |
+| TypeScript         |         92 |      1,741 |        379 |        601 |      2,721 |
+| JSON with Comments |          1 |         16 |         82 |          9 |        107 |
+| Markdown           |          1 |         10 |          0 |          3 |         13 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                            | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                               |         96 |     10,109 |        461 |        615 |     11,185 |
+| . (Files)                                                                       |          6 |      8,507 |        226 |         93 |      8,826 |
+| src                                                                             |         88 |      1,531 |        235 |        499 |      2,265 |
+| src (Files)                                                                     |          1 |         15 |          5 |          5 |         25 |
+| src\actions                                                                     |          6 |        157 |         36 |         42 |        235 |
+| src\actions (Files)                                                             |          2 |         50 |         12 |         15 |         77 |
+| src\actions\players                                                             |          3 |         92 |         24 |         22 |        138 |
+| src\actions\players (Files)                                                     |          1 |         51 |          3 |          7 |         61 |
+| src\actions\players\decks                                                       |          1 |         21 |          0 |          6 |         27 |
+| src\actions\players\hands                                                       |          1 |         20 |         21 |          9 |         50 |
+| src\actions\turns                                                               |          1 |         15 |          0 |          5 |         20 |
+| src\api                                                                         |         38 |        677 |         90 |        209 |        976 |
+| src\api (Files)                                                                 |          1 |         46 |         11 |         10 |         67 |
+| src\api\actions                                                                 |          8 |        194 |          9 |         51 |        254 |
+| src\api\actions (Files)                                                         |          1 |          4 |          0 |          2 |          6 |
+| src\api\actions\cards                                                           |          1 |         51 |          3 |          8 |         62 |
+| src\api\actions\decks                                                           |          3 |         93 |          3 |         27 |        123 |
+| src\api\actions\hands                                                           |          1 |         23 |          3 |          8 |         34 |
+| src\api\actions\players                                                         |          1 |         23 |          0 |          5 |         28 |
+| src\api\actions\turns                                                           |          1 |          0 |          0 |          1 |          1 |
+| src\api\events                                                                  |         26 |        405 |         52 |        141 |        598 |
+| src\api\events (Files)                                                          |          8 |        142 |         40 |         56 |        238 |
+| src\api\events\repository                                                       |         18 |        263 |         12 |         85 |        360 |
+| src\api\events\repository (Files)                                               |          1 |          8 |          0 |          2 |         10 |
+| src\api\events\repository\game                                                  |          3 |         42 |          0 |         13 |         55 |
+| src\api\events\repository\phases                                                |          9 |        121 |          1 |         37 |        159 |
+| src\api\events\repository\players                                               |          2 |         52 |          6 |         14 |         72 |
+| src\api\events\repository\turns                                                 |          1 |         13 |          0 |          6 |         19 |
+| src\api\events\repository\zones                                                 |          2 |         27 |          5 |         13 |         45 |
+| src\api\phases                                                                  |          2 |         23 |         15 |          4 |         42 |
+| src\api\players                                                                 |          1 |          9 |          3 |          3 |         15 |
+| src\cards                                                                       |          1 |          4 |          3 |          2 |          9 |
+| src\game                                                                        |         36 |        589 |         66 |        208 |        863 |
+| src\game\board                                                                  |          5 |        101 |          9 |         32 |        142 |
+| src\game\board (Files)                                                          |          2 |         30 |          0 |         10 |         40 |
+| src\game\board\zones                                                            |          3 |         71 |          9 |         22 |        102 |
+| src\game\cards                                                                  |         22 |        279 |         30 |        104 |        413 |
+| src\game\cards (Files)                                                          |         12 |        176 |         27 |         78 |        281 |
+| src\game\cards\abilities                                                        |          6 |         33 |          3 |         12 |         48 |
+| src\game\cards\abilities (Files)                                                |          5 |         24 |          3 |         10 |         37 |
+| src\game\cards\abilities\triggered                                              |          1 |          9 |          0 |          2 |         11 |
+| src\game\cards\cardLibrary                                                      |          4 |         70 |          0 |         14 |         84 |
+| src\game\phases                                                                 |          1 |         41 |          0 |          8 |         49 |
+| src\game\players                                                                |          8 |        168 |         27 |         64 |        259 |
+| src\game\players (Files)                                                        |          2 |         85 |         11 |         30 |        126 |
+| src\game\players\decks                                                          |          3 |         56 |         13 |         25 |         94 |
+| src\game\players\hands                                                          |          3 |         27 |          3 |          9 |         39 |
+| src\state                                                                       |          2 |         79 |         35 |         28 |        142 |
+| src\types                                                                       |          4 |         10 |          0 |          5 |         15 |
+| src\types (Files)                                                               |          1 |          5 |          0 |          2 |          7 |
+| src\types\turns                                                                 |          1 |          3 |          0 |          1 |          4 |
+| src\types\zones                                                                 |          2 |          2 |          0 |          2 |          4 |
+| test                                                                            |          2 |         71 |          0 |         23 |         94 |
+| test\events                                                                     |          1 |         45 |          0 |         15 |         60 |
+| test\game                                                                       |          1 |         26 |          0 |          8 |         34 |
++---------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                        | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\projects\card-game\README.md                                                 | Markdown           |         10 |          0 |          3 |         13 |
+| c:\projects\card-game\example.ts                                                | TypeScript         |        131 |          7 |         24 |        162 |
+| c:\projects\card-game\jest.config.ts                                            | TypeScript         |          8 |        137 |         55 |        200 |
+| c:\projects\card-game\package-lock.json                                         | JSON               |      8,326 |          0 |          1 |      8,327 |
+| c:\projects\card-game\package.json                                              | JSON               |         16 |          0 |          1 |         17 |
+| c:\projects\card-game\src\actions\ActionNames.ts                                | TypeScript         |          9 |          5 |          4 |         18 |
+| c:\projects\card-game\src\actions\index.ts                                      | TypeScript         |         41 |          7 |         11 |         59 |
+| c:\projects\card-game\src\actions\players\decks\index.ts                        | TypeScript         |         21 |          0 |          6 |         27 |
+| c:\projects\card-game\src\actions\players\hands\index.ts                        | TypeScript         |         20 |         21 |          9 |         50 |
+| c:\projects\card-game\src\actions\players\index.ts                              | TypeScript         |         51 |          3 |          7 |         61 |
+| c:\projects\card-game\src\actions\turns\index.ts                                | TypeScript         |         15 |          0 |          5 |         20 |
+| c:\projects\card-game\src\api\actions\cards\index.ts                            | TypeScript         |         51 |          3 |          8 |         62 |
+| c:\projects\card-game\src\api\actions\decks\DrawCards.ts                        | TypeScript         |         44 |          0 |         11 |         55 |
+| c:\projects\card-game\src\api\actions\decks\ShuffleDecks.ts                     | TypeScript         |         40 |          3 |         13 |         56 |
+| c:\projects\card-game\src\api\actions\decks\index.ts                            | TypeScript         |          9 |          0 |          3 |         12 |
+| c:\projects\card-game\src\api\actions\hands\DiscardCard.ts                      | TypeScript         |         23 |          3 |          8 |         34 |
+| c:\projects\card-game\src\api\actions\index.ts                                  | TypeScript         |          4 |          0 |          2 |          6 |
+| c:\projects\card-game\src\api\actions\players\index.ts                          | TypeScript         |         23 |          0 |          5 |         28 |
+| c:\projects\card-game\src\api\actions\turns\index.ts                            | TypeScript         |          0 |          0 |          1 |          1 |
+| c:\projects\card-game\src\api\events\EventTracker.ts                            | TypeScript         |         50 |         13 |         15 |         78 |
+| c:\projects\card-game\src\api\events\GameEvent.ts                               | TypeScript         |          8 |          9 |          5 |         22 |
+| c:\projects\card-game\src\api\events\GameEvents.ts                              | TypeScript         |         31 |          8 |         13 |         52 |
+| c:\projects\card-game\src\api\events\IEventTracker.ts                           | TypeScript         |         10 |          0 |          7 |         17 |
+| c:\projects\card-game\src\api\events\InternalListener.ts                        | TypeScript         |         24 |          5 |          7 |         36 |
+| c:\projects\card-game\src\api\events\Payload.ts                                 | TypeScript         |          7 |          0 |          4 |         11 |
+| c:\projects\card-game\src\api\events\RequestEvent.ts                            | TypeScript         |          6 |          5 |          3 |         14 |
+| c:\projects\card-game\src\api\events\index.ts                                   | TypeScript         |          6 |          0 |          2 |          8 |
+| c:\projects\card-game\src\api\events\repository\game\GameEnd.ts                 | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\game\GameInitialized.ts         | TypeScript         |         14 |          0 |          5 |         19 |
+| c:\projects\card-game\src\api\events\repository\game\GameStart.ts               | TypeScript         |         15 |          0 |          4 |         19 |
+| c:\projects\card-game\src\api\events\repository\index.ts                        | TypeScript         |          8 |          0 |          2 |         10 |
+| c:\projects\card-game\src\api\events\repository\phases\BeginUpkeep.ts           | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\EndCombatPhase.ts        | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\EndMainPhase.ts          | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\EndTurn.ts               | TypeScript         |         17 |          1 |          5 |         23 |
+| c:\projects\card-game\src\api\events\repository\phases\EndUpkeep.ts             | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\StartCombatPhase.ts      | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\StartDrawPhase.ts        | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\StartMainPhase.ts        | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\phases\TurnStart.ts             | TypeScript         |         13 |          0 |          4 |         17 |
+| c:\projects\card-game\src\api\events\repository\players\SelectRandomPlayer.ts   | TypeScript         |         25 |          3 |          7 |         35 |
+| c:\projects\card-game\src\api\events\repository\players\SelectStartingPlayer.ts | TypeScript         |         27 |          3 |          7 |         37 |
+| c:\projects\card-game\src\api\events\repository\turns\ProgressTurn.ts           | TypeScript         |         13 |          0 |          6 |         19 |
+| c:\projects\card-game\src\api\events\repository\zones\MoveCardToZone.ts         | TypeScript         |         20 |          5 |          9 |         34 |
+| c:\projects\card-game\src\api\events\repository\zones\ZoneChangeEvent.ts        | TypeScript         |          7 |          0 |          4 |         11 |
+| c:\projects\card-game\src\api\index.ts                                          | TypeScript         |         46 |         11 |         10 |         67 |
+| c:\projects\card-game\src\api\phases\GamePhase.ts                               | TypeScript         |         10 |         12 |          2 |         24 |
+| c:\projects\card-game\src\api\phases\TurnPhase.ts                               | TypeScript         |         13 |          3 |          2 |         18 |
+| c:\projects\card-game\src\api\players\PlayerInitializer.ts                      | TypeScript         |          9 |          3 |          3 |         15 |
+| c:\projects\card-game\src\cards\CardLink.ts                                     | TypeScript         |          4 |          3 |          2 |          9 |
+| c:\projects\card-game\src\game\board\Board.ts                                   | TypeScript         |         15 |          0 |          5 |         20 |
+| c:\projects\card-game\src\game\board\index.ts                                   | TypeScript         |         15 |          0 |          5 |         20 |
+| c:\projects\card-game\src\game\board\zones\Zone.ts                              | TypeScript         |         20 |          3 |          4 |         27 |
+| c:\projects\card-game\src\game\board\zones\Zones.ts                             | TypeScript         |         45 |          6 |         16 |         67 |
+| c:\projects\card-game\src\game\board\zones\index.ts                             | TypeScript         |          6 |          0 |          2 |          8 |
+| c:\projects\card-game\src\game\cards\Ability.ts                                 | TypeScript         |          3 |          0 |          3 |          6 |
+| c:\projects\card-game\src\game\cards\Card.ts                                    | TypeScript         |         28 |          7 |         16 |         51 |
+| c:\projects\card-game\src\game\cards\CardTranslator.ts                          | TypeScript         |         40 |          0 |         16 |         56 |
+| c:\projects\card-game\src\game\cards\CardType.ts                                | TypeScript         |         18 |          3 |          4 |         25 |
+| c:\projects\card-game\src\game\cards\CardValue.ts                               | TypeScript         |         16 |          8 |          5 |         29 |
+| c:\projects\card-game\src\game\cards\Color.ts                                   | TypeScript         |          2 |          0 |          2 |          4 |
+| c:\projects\card-game\src\game\cards\Effect.ts                                  | TypeScript         |          5 |          2 |          4 |         11 |
+| c:\projects\card-game\src\game\cards\ICard.ts                                   | TypeScript         |         22 |          4 |         15 |         41 |
+| c:\projects\card-game\src\game\cards\Library.ts                                 | TypeScript         |         22 |          3 |          7 |         32 |
+| c:\projects\card-game\src\game\cards\ManaCost.ts                                | TypeScript         |          5 |          0 |          2 |          7 |
+| c:\projects\card-game\src\game\cards\SubType.ts                                 | TypeScript         |          7 |          0 |          2 |          9 |
+| c:\projects\card-game\src\game\cards\abilities\AbstractAbility.ts               | TypeScript         |          7 |          0 |          2 |          9 |
+| c:\projects\card-game\src\game\cards\abilities\DrawCard.ts                      | TypeScript         |          3 |          0 |          2 |          5 |
+| c:\projects\card-game\src\game\cards\abilities\ITriggeredAbility.ts             | TypeScript         |          5 |          3 |          2 |         10 |
+| c:\projects\card-game\src\game\cards\abilities\TriggeredAbility.ts              | TypeScript         |          9 |          0 |          3 |         12 |
+| c:\projects\card-game\src\game\cards\abilities\index.ts                         | TypeScript         |          0 |          0 |          1 |          1 |
+| c:\projects\card-game\src\game\cards\abilities\triggered\TriggeredDrawCard.ts   | TypeScript         |          9 |          0 |          2 |         11 |
+| c:\projects\card-game\src\game\cards\cardLibrary\Fireball.ts                    | TypeScript         |         18 |          0 |          4 |         22 |
+| c:\projects\card-game\src\game\cards\cardLibrary\One.ts                         | TypeScript         |         22 |          0 |          4 |         26 |
+| c:\projects\card-game\src\game\cards\cardLibrary\Zero.ts                        | TypeScript         |         22 |          0 |          4 |         26 |
+| c:\projects\card-game\src\game\cards\cardLibrary\index.ts                       | TypeScript         |          8 |          0 |          2 |         10 |
+| c:\projects\card-game\src\game\cards\index.ts                                   | TypeScript         |          8 |          0 |          2 |         10 |
+| c:\projects\card-game\src\game\phases\PhaseOrder.ts                             | TypeScript         |         41 |          0 |          8 |         49 |
+| c:\projects\card-game\src\game\players\Player.ts                                | TypeScript         |         35 |          6 |         12 |         53 |
+| c:\projects\card-game\src\game\players\decks\Deck.ts                            | TypeScript         |         36 |          7 |         16 |         59 |
+| c:\projects\card-game\src\game\players\decks\Decks.ts                           | TypeScript         |         12 |          6 |          4 |         22 |
+| c:\projects\card-game\src\game\players\decks\IDeck.ts                           | TypeScript         |          8 |          0 |          5 |         13 |
+| c:\projects\card-game\src\game\players\hands\Hand.ts                            | TypeScript         |         15 |          0 |          4 |         19 |
+| c:\projects\card-game\src\game\players\hands\Hands.ts                           | TypeScript         |          7 |          3 |          3 |         13 |
+| c:\projects\card-game\src\game\players\hands\index.ts                           | TypeScript         |          5 |          0 |          2 |          7 |
+| c:\projects\card-game\src\game\players\index.ts                                 | TypeScript         |         50 |          5 |         18 |         73 |
+| c:\projects\card-game\src\index.ts                                              | TypeScript         |         15 |          5 |          5 |         25 |
+| c:\projects\card-game\src\state\GameState.ts                                    | TypeScript         |         40 |          9 |         13 |         62 |
+| c:\projects\card-game\src\state\IGameState.ts                                   | TypeScript         |         39 |         26 |         15 |         80 |
+| c:\projects\card-game\src\types\Listener.ts                                     | TypeScript         |          5 |          0 |          2 |          7 |
+| c:\projects\card-game\src\types\turns\index.ts                                  | TypeScript         |          3 |          0 |          1 |          4 |
+| c:\projects\card-game\src\types\zones\Area.ts                                   | TypeScript         |          1 |          0 |          1 |          2 |
+| c:\projects\card-game\src\types\zones\Visibility.ts                             | TypeScript         |          1 |          0 |          1 |          2 |
+| c:\projects\card-game\test\events\EventTracker.spec.ts                          | TypeScript         |         45 |          0 |         15 |         60 |
+| c:\projects\card-game\test\game\Game.spec.ts                                    | TypeScript         |         26 |          0 |          8 |         34 |
+| c:\projects\card-game\tsconfig.json                                             | JSON with Comments |         16 |         82 |          9 |        107 |
+| Total                                                                           |                    |     10,109 |        461 |        615 |     11,185 |
++---------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

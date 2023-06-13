@@ -1,9 +1,9 @@
-import TurnPhase from "../../../api/phases/TurnPhase";
+import { PhaseEvents } from "../../../api/events/GameEvents";
 import Ability from "../Ability";
 import ManaCost from "../ManaCost";
 
 export default abstract class AbstractAbility implements Ability {
-  triggerPhase!: TurnPhase
+  triggerPhase!: PhaseEvents
 
   manaCosts!: ManaCost[]
 }

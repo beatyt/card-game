@@ -1,8 +1,11 @@
+import EventTracker from "../../api/events/EventTracker";
+import { CardEvents, EventTypes } from "../../api/events/GameEvents";
+import { Area } from "../../types/zones/Area";
 import Ability from "./Ability";
 import CardType from "./CardType";
 import CardValue from "./CardValue";
 import Effect from "./Effect";
-import ICard from "../../api/cards/ICard";
+import ICard from "./ICard";
 import SubType from "./SubType";
 
 /**
@@ -14,9 +17,13 @@ import SubType from "./SubType";
 abstract class Card implements ICard {
   name!: string
 
+  id!: string
+
   cardUid!: string
 
   ownerId!: string;
+
+  originalOwnerId!: string;
 
   power!: CardValue
 
@@ -31,12 +38,34 @@ abstract class Card implements ICard {
   // ex: Draw A Card
   effects!: Effect[]
 
+  location!: Area;
+
+  manaCostPaid = false;
+
   resolve(): void {
-    throw new Error("Method not implemented.");
+    this._resolve();
+
+    EventTracker.getInstance().dispatchNotifyingEvent(
+      EventTypes.CardEvent,
+      {
+        name: CardEvents.CardResolved,
+        payload: {
+          card: this
+        }
+      }
+    )
   }
 
-  rollback(): void {
-    throw new Error("Method not implemented.");
+  _resolve(): void {
+    throw new Error("Call the concrete implementation");
+  }
+
+  moveToGraveyard(): void {
+    this.location = Area.Graveyard
+  }
+
+  moveToZone(area: Area): void {
+    this.location = area
   }
 }
 

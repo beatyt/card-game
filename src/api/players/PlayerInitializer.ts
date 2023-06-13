@@ -6,9 +6,8 @@ class PlayerInitializer {
     readonly playerId: string,
     readonly deck: { name: string, cardUris: string[] },
     readonly name?: string,
-  ) {
-
-  }
+  ) { }
 }
 
-export { PlayerInitializer }
+export { PlayerInitializer };
+

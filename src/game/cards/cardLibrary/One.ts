@@ -1,6 +1,7 @@
 import Card from "../Card";
 import CardType from "../CardType";
 import CardValue from "../CardValue";
+import ICard from "../ICard";
 import SubType from "../SubType";
 
 class One extends Card {
@@ -14,6 +15,10 @@ class One extends Card {
     this.subTypes = [SubType.Warrior]
     this.abilities = []
     this.effects = []
+  }
+
+  create(): ICard {
+    return new One();
   }
 }
 

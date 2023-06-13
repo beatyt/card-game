@@ -7,6 +7,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.5.1",
+    "deep-object-diff": "^1.1.9",
     "jest": "^28.1.0",
     "nodemon": "^2.0.16",
     "ts-jest": "^28.0.2",

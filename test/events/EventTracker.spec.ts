@@ -1,47 +1,46 @@
-import { Game, GamePhase } from "../../src/api"
+import Game from "../../src"
 import EventTracker from "../../src/api/events/EventTracker"
-import GameStart from "../../src/api/events/repository/game/GameStart"
 import GameInitialized from "../../src/api/events/repository/game/GameInitialized"
-import { GameEvents } from "../../src/api/events"
-import Library from "../../src/game/cards/Library"
-import GameState from "../../src/api/GameState"
-import Players from "../../src/api/players/Players"
+import GameStart from "../../src/api/events/repository/game/GameStart"
+import GamePhase from "../../src/api/phases/GamePhase"
+import GameState from "../../src/state/GameState"
+import { TurnOrderStrategy } from "../../src/types/turns"
 
 describe('Events', () => {
   beforeEach(() => {
     const gameConfig = {
       players: [],
-      library: new Library([]),
-      listeners: []
+      listeners: [],
+      turnOrderStrategy: TurnOrderStrategy.Random
     }
 
-    const game = Game.init(gameConfig)
+    Game.init(gameConfig)
   })
 
   it('should add an event', () => {
     const events = new EventTracker()
-    events.dispatch(new GameStart())
-  
+    events.dispatchStateModifyingEvent(new GameStart())
+
     expect(events.eventStack.length).toBe(1)
   })
 
   it('should remove an event', () => {
     const events = new EventTracker()
-    events.dispatch(new GameStart())
+    events.dispatchStateModifyingEvent(new GameStart())
     events.undoLast()
-  
+
     expect(events.eventStack.length).toBe(0)
   })
 
   it('should update game state on undo', () => {
     const events = new EventTracker()
 
-    events.dispatch(new GameInitialized())
+    events.dispatchStateModifyingEvent(new GameInitialized())
 
     expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Initialized)
     expect(events.gameStates.length).toBe(1)
 
-    events.dispatch(new GameStart())
+    events.dispatchStateModifyingEvent(new GameStart())
 
     expect(GameState.getInstance().data.gamePhase).toBe(GamePhase.Started)
     expect(events.gameStates.length).toBe(2)
@@ -55,6 +54,6 @@ describe('Events', () => {
 
   describe("Event Messages", () => {
     const events = new EventTracker()
-    events.init()
+    events.init([])
   })
 })

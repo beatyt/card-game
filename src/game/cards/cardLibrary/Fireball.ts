@@ -1,5 +1,6 @@
 import Card from "../Card";
 import CardType from "../CardType";
+import ICard from "../ICard";
 
 class Fireball extends Card {
   constructor() {
@@ -10,6 +11,10 @@ class Fireball extends Card {
     this.subTypes = []
     this.abilities = []
     this.effects = []
+  }
+
+  create(): ICard {
+    return new Fireball();
   }
 }
 

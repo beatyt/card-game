@@ -1,6 +1,7 @@
 import Card from "../Card";
 import CardType from "../CardType";
 import CardValue from "../CardValue";
+import ICard from "../ICard";
 import SubType from "../SubType";
 
 class Zero extends Card {
@@ -16,6 +17,9 @@ class Zero extends Card {
     this.effects = []
   }
 
+  create(): ICard {
+    return new Zero();
+  }
 }
 
 export default Zero

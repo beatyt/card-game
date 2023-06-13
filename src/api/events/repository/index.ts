@@ -1,9 +1,15 @@
-import GameEnd from './game/GameEnd'
-import GameInitialized from './game/GameInitialized'
-import GameStart from './game/GameStart'
+import { DeckEventPayloads } from '../../actions/decks'
+import { CardEventPayloads } from './cards'
+import { GameEventPayloads } from './game'
+import { PhaseEventPayloads } from './phases'
+import { PlayerEventPayloads } from './players'
+import { TurnEventPayloads } from './turns'
 
-export default {
-  GameInitialized,
-  GameStart,
-  GameEnd
-}
+export type NotificationEvent =
+  CardEventPayloads |
+  PlayerEventPayloads |
+  DeckEventPayloads |
+  TurnEventPayloads |
+  GameEventPayloads |
+  PlayerEventPayloads |
+  PhaseEventPayloads

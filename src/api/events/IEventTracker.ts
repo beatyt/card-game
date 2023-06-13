@@ -1,7 +1,11 @@
-import GameEvent from "./GameEvent";
+import GameAction from "../actions/GameAction";
+import { EventTypes } from "./GameEvents";
+import { NotificationEvent } from "./repository";
 
 interface IEventTracker {
-  dispatchStateModifyingEvent(event: GameEvent): void
+  dispatchStateModifyingEvent(event: GameAction): void
+
+  dispatchNotifyingEvent(type: EventTypes, event: NotificationEvent): void
 
   undoLast(): void
 

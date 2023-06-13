@@ -1,22 +1,11 @@
-import Card from './Card'
+import Card from "./Card"
 import Effect from './Effect'
 import Library from './Library'
 
-import cards from './cardLibrary'
-import ICard from '../../api/cards/ICard'
-
-const map = new Map<string, ICard>()
-
-cards.map(card => {
-  console.time('Loading Cards')
-  const _card = new card()
-  map.set(_card.cardUid, _card)
-  console.timeEnd('Loading Cards')
-})
+const library = new Library().init()
 
 export default {
   Card,
   Effect,
-  Library,
-  map
+  Library: library,
 }

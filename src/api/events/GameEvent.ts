@@ -1,19 +1,20 @@
-import { IGameStateData } from "../IGameState"
-import { CardEvents, GameEvents } from "./GameEvents"
+
+import IGameState from "../../state/IGameState"
+import { GameEvents, NoticeEvent } from "./GameEvents"
 
 /**
  * Modifies game state by taking the current state
  * and returning new modifications to make
  */
 interface GameEvent {
-  name: GameEvents | CardEvents
+  readonly name: NoticeEvent
 
   /**
    * Returns the diff to add
    * 
    * @param gameState 
    */
-  apply(gameState: IGameStateData): Partial<IGameStateData>
+  apply(gameState: IGameState): void
 }
 
 export default GameEvent
